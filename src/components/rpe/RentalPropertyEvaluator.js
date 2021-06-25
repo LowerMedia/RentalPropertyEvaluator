@@ -1,10 +1,29 @@
 import React 		from 'react';
-import ExpenseForm  from './components/ExpenseForm';
 import AdjustableInputField  from './components/AdjustableInputField';
 
 class calculations {
 	CashFlow = (incomes, expenses) => {
 		return incomes - expenses;
+	}
+}
+
+class ExpenseForm extends React.Component {
+	constructor(props) {
+		super(props);
+		this.TotalExpenses = this.props.props.TotalExpenses;
+	}
+	render() {
+		return(
+			<section className='side-padded'>
+				<AdjustableInputField id="CapEx" labelText="Cap Ex" defaultValue="5" />
+				<AdjustableInputField id="MaintRepExpense" labelText="Maint/Rep" defaultValue={2.5} />
+				<AdjustableInputField id="MiscExpense" labelText="Misc" defaultValue={2.5} />
+				<AdjustableInputField id="PropMngtExpense" labelText="PropMngt" defaultValue={5} />
+				<AdjustableInputField id="VacancyExpense" labelText="Vacancy" defaultValue={5} />
+				<hr/>
+				<AdjustableInputField id="TotalExpenses" labelText="Total" defaultValue={this.props.props.TotalExpenses} />
+			</section>
+		)
 	}
 }
 
@@ -34,7 +53,7 @@ class ResultsBox extends React.Component {
 	}
 	render() {
 		return(
-			<div className="RentalPropertyEvaluatorResultsBox">
+			<div className="RentalPropertyEvaluatorResultsBox side-padded">
 				<AdjustableInputField id="CashFlow" labelText="CashFlow" />
 				<AdjustableInputField id="CoCROI" labelText="CoC ROI" />
 				<AdjustableInputField id="Cap" labelText="Cap" />
@@ -60,7 +79,7 @@ class RentalPropertyEvaluator extends React.Component {
 
 	render() {
 		return(
-			<section className="flex space-between width-half">
+			<section className="flex space-between width-three-quarters">
 				<ExpenseForm props={this.state.values} />
 				<EvalForm props={this.state.values} />
 				<ResultsBox />

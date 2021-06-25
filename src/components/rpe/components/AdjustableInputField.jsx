@@ -3,18 +3,17 @@ import React from 'react';
 export default class AdjustableInputField extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {value:"0"};
+		console.log(this.props);
+		this.state = {value: (this.props.defaultValue) ? this.props.defaultValue : "0"};
 	}
 	componentDidMount() {
-		document.getElementById(this.props.id).value = 0;
+		document.getElementById(this.props.id).value = this.state.value;
 	}
 	changeEventHandler(event) {
 		console.log(event.target.id);
 		if (event.target.id === 'RentPrice') {
-			document.getElementById('CashFlow').innerText = 
-			event.target.value - ( event.target.value * ( .01 * parseInt( document.getElementById('TotalExpenses').innerText ) ) );
 			document.getElementById('CashFlow').value = 
-			event.target.value - ( event.target.value * ( .01 * parseInt( document.getElementById('TotalExpenses').innerText ) ) );
+			event.target.value - ( event.target.value * ( .01 * parseInt( document.getElementById('TotalExpenses').value ) ) );
 		}
 		// if (event.target.id == 'PurchasePrice') {
 
