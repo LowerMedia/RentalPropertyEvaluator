@@ -6,8 +6,14 @@ class EvalFormItem extends React.Component {
 		this.state = {value:"0"};
 	}
 	calculate(event) {
-		console.log(event.target.value);
-		document.getElementById('CashFlow').innerText = event.target.value;
+		console.log(event.target.id);
+		if (event.target.id === 'RentPrice') {
+			document.getElementById('CashFlow').innerText = 
+			event.target.value - ( event.target.value * ( .01 * parseInt( document.getElementById('TotalExpenses').innerText ) ) );
+		}
+		if (event.target.id == 'PurchasePrice') {
+
+		}
 	}
 	render() {
 		return(
