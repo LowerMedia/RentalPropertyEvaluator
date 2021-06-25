@@ -1,7 +1,6 @@
 import React 		from 'react';
-import EvalFormItem from './components/EvalFormItem';
-import ResultItem   from './components/ResultItem';
 import ExpenseForm  from './components/ExpenseForm';
+import AdjustableInputField  from './components/AdjustableInputField';
 
 class calculations {
 	CashFlow = (incomes, expenses) => {
@@ -16,14 +15,14 @@ class EvalForm extends React.Component {
 	render() {
 		return(
 			<form className="RentalPropertyEvaluatorForm is-padded">
-				<EvalFormItem id="RentPrice" labelText="Estimated Rent: " />
-				<EvalFormItem id="PurchasePrice" labelText="Purchase Price: " />
+				<AdjustableInputField id="RentPrice" labelText="Estimated Rent: " />
+				<AdjustableInputField id="PurchasePrice" labelText="Purchase Price: " />
 				<hr/>
-				<EvalFormItem id="PercentDown" labelText="Percent Down: " />
-				<EvalFormItem id="InterestRate" labelText="Interest Rate: " />
+				<AdjustableInputField id="PercentDown" labelText="Percent Down: " />
+				<AdjustableInputField id="InterestRate" labelText="Interest Rate: " />
 				<hr/>
-				<EvalFormItem id="HOA" labelText="Yearly HOA: " />
-				<EvalFormItem id="Taxes" labelText="Yearly Tax Estimate: " />
+				<AdjustableInputField id="HOA" labelText="Yearly HOA: " />
+				<AdjustableInputField id="Taxes" labelText="Yearly Tax Estimate: " />
 			</form>
 		);
 	}
@@ -36,9 +35,9 @@ class ResultsBox extends React.Component {
 	render() {
 		return(
 			<div className="RentalPropertyEvaluatorResultsBox">
-				<ResultItem id="CashFlow" labelText="CashFlow" resultText="10%" />
-				<ResultItem id="CoCROI" labelText="CoC ROI" resultText="10%" />
-				<ResultItem id="Cap" labelText="Cap" resultText="10%" />
+				<AdjustableInputField id="CashFlow" labelText="CashFlow" />
+				<AdjustableInputField id="CoCROI" labelText="CoC ROI" />
+				<AdjustableInputField id="Cap" labelText="Cap" />
 			</div>
 		);
 	}
