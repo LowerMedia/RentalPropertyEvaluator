@@ -11,7 +11,7 @@ const EvalFormItem = ({id, labelText}) => {
 
 const EvalForm = () => {
 	return(
-		<form className="RentalPropertyEvaluatorForm">
+		<form className="RentalPropertyEvaluatorForm is-padded">
 			<EvalFormItem id="PurchasePrice" labelText="Purchase Price: " />
 			<EvalFormItem id="RentPrice" labelText="Estimated Rent: " />
 			<EvalFormItem id="HOA" labelText="Yearly HOA: " />
@@ -22,10 +22,32 @@ const EvalForm = () => {
 	);
 }
 
+const ResultItem = ({id, labelText, resultText}) => {
+	return(
+		<div className='formItem flex space-between'>
+			<label htmlFor={id} id={`${id}-ariaLabel`} >{labelText}</label>
+			<span id={id} name={id} aria-labelledby={`${id}-ariaLabel`}>{resultText}</span>
+		</div>
+
+	);
+}
+
+const ResultsBox = () => {
+	return(
+		<div className="RentalPropertyEvaluatorResultsBox">
+			<ResultItem id="CashFlow" labelText="CashFlow" resultText="10%" />
+			<ResultItem id="CoCROI" labelText="CoC ROI" resultText="10%" />
+			<ResultItem id="Cap" labelText="Cap" resultText="10%" />
+		</div>
+	);
+}
+
 const RentalPropertyEvaluator = () => {
 	return(
 		<section>
 			<EvalForm />
+			<br/>
+			<ResultsBox />
 		</section>
 	);
 };
