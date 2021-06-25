@@ -1,17 +1,11 @@
 import React from 'react';
-
-const EvalFormItem = ({id, labelText}) => {
-	return(
-		<div className='formItem flex space-between'>
-			<label htmlFor={id} id={`${id}-ariaLabel`} >{labelText}</label>
-			<input type="text" id={id} name={id} aria-labelledby={`${id}-ariaLabel`} />
-		</div>
-	);
-}
+import EvalFormItem from './components/EvalFormItem';
+import ResultItem from './components/ResultItem';
 
 const EvalForm = () => {
 	return(
 		<form className="RentalPropertyEvaluatorForm is-padded">
+			<EvalFormItem id="PurchasePrice" labelText="Purchase Price: " />
 			<EvalFormItem id="PurchasePrice" labelText="Purchase Price: " />
 			<EvalFormItem id="RentPrice" labelText="Estimated Rent: " />
 			<EvalFormItem id="HOA" labelText="Yearly HOA: " />
@@ -19,16 +13,6 @@ const EvalForm = () => {
 			<EvalFormItem id="PercentDown" labelText="Percent Down: " />
 			<EvalFormItem id="InterestRate" labelText="Interest Rate: " />
 		</form>
-	);
-}
-
-const ResultItem = ({id, labelText, resultText}) => {
-	return(
-		<div className='formItem flex space-between'>
-			<label htmlFor={id} id={`${id}-ariaLabel`} >{labelText}</label>
-			<span id={id} name={id} aria-labelledby={`${id}-ariaLabel`}>{resultText}</span>
-		</div>
-
 	);
 }
 
