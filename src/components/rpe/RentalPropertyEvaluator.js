@@ -14,7 +14,7 @@ class ExpenseForm extends React.Component {
 	}
 	render() {
 		return(
-			<section className='side-padded'>
+			<section id='ExpenseSection' className='ExpenseSection side-padded'>
 				<AdjustableInputField id="CapEx" labelText="Cap Ex" defaultValue="5" />
 				<AdjustableInputField id="MaintRepExpense" labelText="Maint/Rep" defaultValue={2.5} />
 				<AdjustableInputField id="MiscExpense" labelText="Misc" defaultValue={2.5} />
