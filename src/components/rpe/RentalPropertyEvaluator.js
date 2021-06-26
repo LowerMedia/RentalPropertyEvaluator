@@ -7,6 +7,15 @@ class calculations {
 	}
 }
 
+// function calculate(equation = 'CashFlow', inputs = []) {
+// 	if (equation === 'CashFlow') {
+// 		return inputs[0] - inputs[1];
+// 	}
+// 	if (equation === 'CAP') {
+// 		return inputs[0] - inputs[1];
+// 	}
+// }
+
 class ExpenseForm extends React.Component {
 	constructor(props) {
 		super(props);
@@ -15,13 +24,15 @@ class ExpenseForm extends React.Component {
 	render() {
 		return(
 			<section id='ExpenseSection' className='ExpenseSection side-padded'>
-				<AdjustableInputField id="CapEx" labelText="Cap Ex" defaultValue="5" />
-				<AdjustableInputField id="MaintRepExpense" labelText="Maint/Rep" defaultValue={2.5} />
-				<AdjustableInputField id="MiscExpense" labelText="Misc" defaultValue={2.5} />
-				<AdjustableInputField id="PropMngtExpense" labelText="PropMngt" defaultValue={5} />
-				<AdjustableInputField id="VacancyExpense" labelText="Vacancy" defaultValue={5} />
-				<hr/>
-				<AdjustableInputField id="TotalExpenses" labelText="Total" defaultValue={this.props.props.TotalExpenses} />
+				<form>
+					<AdjustableInputField id="CapEx" labelText="Cap Ex" defaultValue="5" />
+					<AdjustableInputField id="MaintRepExpense" labelText="Maint/Rep" defaultValue={2.5} />
+					<AdjustableInputField id="MiscExpense" labelText="Misc" defaultValue={2.5} />
+					<AdjustableInputField id="PropMngtExpense" labelText="PropMngt" defaultValue={5} />
+					<AdjustableInputField id="VacancyExpense" labelText="Vacancy" defaultValue={5} />
+					<hr/>
+					<AdjustableInputField id="TotalExpenses" labelText="Total" defaultValue={this.props.props.TotalExpenses} />
+				</form>
 			</section>
 		)
 	}
@@ -33,16 +44,18 @@ class EvalForm extends React.Component {
 	}
 	render() {
 		return(
-			<form className="RentalPropertyEvaluatorForm is-padded">
-				<AdjustableInputField id="RentPrice" labelText="Estimated Rent: " />
-				<AdjustableInputField id="PurchasePrice" labelText="Purchase Price: " />
-				<hr/>
-				<AdjustableInputField id="PercentDown" labelText="Percent Down: " />
-				<AdjustableInputField id="InterestRate" labelText="Interest Rate: " />
-				<hr/>
-				<AdjustableInputField id="HOA" labelText="Yearly HOA: " />
-				<AdjustableInputField id="Taxes" labelText="Yearly Tax Estimate: " />
-			</form>
+			<section className="RentalPropertyEvaluatorForm is-padded">
+				<form>
+					<AdjustableInputField id="RentPrice" labelText="Estimated Rent: " />
+					<AdjustableInputField id="PurchasePrice" labelText="Purchase Price: " />
+					<hr/>
+					<AdjustableInputField id="PercentDown" labelText="Percent Down: " />
+					<AdjustableInputField id="InterestRate" labelText="Interest Rate: " />
+					<hr/>
+					<AdjustableInputField id="HOA" labelText="Yearly HOA: " />
+					<AdjustableInputField id="Taxes" labelText="Yearly Tax Estimate: " />
+				</form>
+			</section>
 		);
 	}
 }
@@ -53,11 +66,13 @@ class ResultsBox extends React.Component {
 	}
 	render() {
 		return(
-			<div className="RentalPropertyEvaluatorResultsBox side-padded">
-				<AdjustableInputField id="CashFlow" labelText="CashFlow" />
-				<AdjustableInputField id="CoCROI" labelText="CoC ROI" />
-				<AdjustableInputField id="Cap" labelText="Cap" />
-			</div>
+			<section className="RentalPropertyEvaluatorResultsBox side-padded">
+				<form>
+					<AdjustableInputField id="CashFlow" labelText="CashFlow" />
+					<AdjustableInputField id="CoCROI" labelText="CoC ROI" />
+					<AdjustableInputField id="Cap" labelText="Cap" />
+				</form>
+			</section>
 		);
 	}
 }
