@@ -65,7 +65,7 @@
 
 input {
   text-align: right;
-  max-width: 100px;
+  max-width: 75px;
 }
 
 label { padding-right: 15px; }
