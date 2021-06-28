@@ -21,16 +21,16 @@ class RentalPropertyEvaluator extends React.Component {
 		this.handleFieldChange = this.handleFieldChange.bind(this);
 	}
 
-	handleFieldChange() {
-		console.log('RentalPropertyEvaluator class change handler fired');
+	handleFieldChange(inputChanged, newValue) {
+		console.log(inputChanged, newValue, 'RentalPropertyEvaluator class change handler fired');
 	}
 
 	render() {
 		return(
 			<section className="flex space-between width-three-quarters">
-				<FieldsSection defaultValue={this.state.values} sectionId="ExpenseSection" fieldsArray={FieldDataObject.ExpenseFormFieldsArray} changeHandler={this.handleFieldChange()} />
-				<FieldsSection defaultValue={this.state.values} sectionId="RentalPropertyEvaluatorForm" fieldsArray={FieldDataObject.EvalFormFieldsArray} changeHandler={this.handleFieldChange()} />
-				<FieldsSection defaultValue={this.state.values} sectionId="RentalPropertyEvaluatorResultsBox" fieldsArray={FieldDataObject.ResultsBoxFields} changeHandler={this.handleFieldChange()} />
+				<FieldsSection handleFieldChange={this.handleFieldChange} defaultValue={this.state.values} sectionId="ExpenseSection" fieldsArray={FieldDataObject.ExpenseFormFieldsArray} />
+				<FieldsSection handleFieldChange={this.handleFieldChange} defaultValue={this.state.values} sectionId="RentalPropertyEvaluatorForm" fieldsArray={FieldDataObject.EvalFormFieldsArray} />
+				<FieldsSection handleFieldChange={this.handleFieldChange} defaultValue={this.state.values} sectionId="RentalPropertyEvaluatorResultsBox" fieldsArray={FieldDataObject.ResultsBoxFields} />
 			</section>
 		);
 	}
