@@ -3,10 +3,11 @@ import React from 'react';
 export default class AdjustableInputField extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {value: (this.props.defaultValue) ? this.props.defaultValue : "0"};
+		this.state = {value: (this.props.curVal) ? this.props.curVal : "0"};
+		console.log(this.props.curVal);
 	}
 	componentDidMount() {
-		document.getElementById(this.props.id).value = this.state.value;
+		document.getElementById(this.props.id).defaultValue = this.state.value;
 	}
 	render() {
 		return(
