@@ -15,6 +15,7 @@ export default class FieldsSection extends React.Component {
 	render() {
 		return(
 			<section id={this.props.sectionId} className='FieldsSection side-padded'>
+				<h5 className="left">{this.props.sectionTitle}</h5>
 				<form>{this.mappedFields}</form>
 			</section>
 		)
