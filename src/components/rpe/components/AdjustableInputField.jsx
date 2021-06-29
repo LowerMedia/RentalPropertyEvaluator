@@ -3,8 +3,10 @@ import React from 'react';
 export default class AdjustableInputField extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {value: (this.props.curVal) ? this.props.curVal : "0"};
+		this.state = {value: (this.props.curVal.[this.props.id]) ? this.props.curVal.[this.props.id] : "0"};
 		this.childHandleFieldChange = this.childHandleFieldChange.bind(this);
+		console.log('orig props: ', this.props);
+		console.log('orig state: ', this.state)
 	}
 	componentDidMount() {
 		document.getElementById(this.props.id).defaultValue = this.state.value;
@@ -12,7 +14,7 @@ export default class AdjustableInputField extends React.Component {
 	async childHandleFieldChange(props, targetValue) {
 		await this.setState({value: targetValue});
 		await this.props.handleFieldChange(props,targetValue);
-		console.log(this.state);
+		console.log('new state', this.state);
 	}
 	render() {
 		return(
