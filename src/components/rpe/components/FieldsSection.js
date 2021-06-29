@@ -9,7 +9,7 @@ export default class FieldsSection extends React.Component {
 			key={key} 
 			id={field.id} 
 			labelText={field.labelText} 
-			curVal={this.props.curVal[field.id]} 
+			curVal={this.props.curVal[field.id]}
 		/>);
 	}
 	render() {
