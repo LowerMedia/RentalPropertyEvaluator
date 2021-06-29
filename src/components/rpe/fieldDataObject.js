@@ -2,8 +2,10 @@ const FieldDataObject = {
 	ResultsBoxFields: [
 		{id:"CashFlow",labelText:"CashFlow"},
 		{id:"CashFlowYearly",labelText:"CashFlowYearly"},
-		{id:"CoCROI",labelText:"CoCROI"},
-		{id:"Cap",labelText:"Cap"},
+		{id:"CoCROI",labelText:"CoCROI",isPercentage:"true"},
+		// {id:"Cap",labelText:"Cap"},
+		// {id:"NetOperatingIncome",labelText:"NetOperatingIncome"},
+		{id:"TotalCashInvested",labelText:"TotalCashInvested"},
 	],
 
 	EvalFormFieldsArray: [
@@ -21,7 +23,7 @@ const FieldDataObject = {
 		// {id:"MiscExpense",labelText:"Misc",defaultValue:2.5},
 		// {id:"PropMngtExpense",labelText:"PropMngt",defaultValue:5},
 		// {id:"VacancyExpense",labelText:"Vacancy",defaultValue:5},
-		{id:"TotalExpenses",labelText:"Total",defaultValue:20},
+		{id:"TotalExpenses",labelText:"Total"},
 	],
 };
 

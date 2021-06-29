@@ -5,16 +5,12 @@ export default class AdjustableInputField extends React.Component {
 		super(props);
 		this.state = {value: (this.props.curVal.[this.props.id]) ? this.props.curVal.[this.props.id] : "0"};
 		this.childHandleFieldChange = this.childHandleFieldChange.bind(this);
-		console.log('orig props: ', this.props);
-		console.log('orig state: ', this.state)
 	}
 	componentDidMount() {
 		document.getElementById(this.props.id).defaultValue = this.state.value;
 	}
 	async childHandleFieldChange(props, targetValue) {
-		await this.setState({value: targetValue});
 		await this.props.handleFieldChange(props,targetValue);
-		console.log('new state', this.state);
 	}
 	render() {
 		return(
