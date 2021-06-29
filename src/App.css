@@ -49,6 +49,8 @@
 
 .space-between { justify-content: space-between; }
 
+.width-one-fifth { min-width: 20%; }
+
 .width-half { width: 50%; }
 
 .width-three-quarters { width: 75%; }

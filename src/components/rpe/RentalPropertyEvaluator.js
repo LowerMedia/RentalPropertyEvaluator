@@ -21,7 +21,6 @@ class RentalPropertyEvaluator extends React.Component {
 		}
 		this.handleFieldChange = this.handleFieldChange.bind(this);
 		console.log('orig parent state ', this.state)
-		this.resultsFields = FieldDataObject.ResultsBoxFields.map( (field,key) => <ResultsField key={key} result={this.state[field.id]} fieldTitle={field.id} />);
 	}
 
 	async handleFieldChange(inputChanged, newValue) {
@@ -53,7 +52,7 @@ class RentalPropertyEvaluator extends React.Component {
 			<section className="flex space-between width-three-quarters flex-wrap">
 				<FieldsSection sectionTitle={"Expenses"} handleFieldChange={this.handleFieldChange} curVal={this.state} sectionId="ExpenseSection" fieldsArray={FieldDataObject.ExpenseFormFieldsArray} />
 				<FieldsSection handleFieldChange={this.handleFieldChange} curVal={this.state} sectionId="RentalPropertyEvaluatorForm" fieldsArray={FieldDataObject.EvalFormFieldsArray} />
-				<section className="FieldsSection side-padded">
+				<section className="FieldsSection side-padded width-one-fifth">
 					<h5 className='left'>Results</h5>
 					{ FieldDataObject.ResultsBoxFields.map( (field,key) => <ResultsField key={key} result={this.state[field.id]} fieldTitle={field.id} />) }
 				</section>
