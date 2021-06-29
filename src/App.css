@@ -76,7 +76,10 @@ input {
   max-width: 75px;
 }
 
-label { padding-right: 15px; }
+label {
+  font-size: 1rem;
+  padding-right: 15px;
+}
 
 .side-padded {
   padding-left:  0.75rem;
