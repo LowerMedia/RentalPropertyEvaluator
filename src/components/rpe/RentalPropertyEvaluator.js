@@ -57,6 +57,10 @@ class RentalPropertyEvaluator extends React.Component {
 
 	componentDidMount() {
 		this.calculateAll();
+		console.log(
+			'mortgage test ',
+			RPECalc.monthlymortgage(5,30,100000)
+		);
 	}
 
 	render() {
