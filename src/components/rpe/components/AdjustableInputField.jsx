@@ -15,7 +15,7 @@ export default class AdjustableInputField extends React.Component {
 	render() {
 		return(
 			<div className='formItem flex space-between'>
-				<label htmlFor={this.props.id} id={`${this.props.id}-ariaLabel`} >{this.props.labelText}</label>
+				<label className="is-size-1" htmlFor={this.props.id} id={`${this.props.id}-ariaLabel`} >{this.props.labelText}</label>
 				<input onChange={(e) => this.childHandleFieldChange(this.props.id,e.target.value)} type="text" id={this.props.id} name={this.props.id} aria-labelledby={`${this.props.id}-ariaLabel`} />
 			</div>
 		)

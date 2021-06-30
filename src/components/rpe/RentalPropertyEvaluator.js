@@ -8,16 +8,29 @@ class RentalPropertyEvaluator extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			// changeable
 			PurchasePrice: 100000,
-			ClosingCosts: 0,
-			TotalCashInvested: 0,
+			ClosingCosts: 1000,
 			RentPrice: 1000,
+			CapEx:5,
+			MaintRepExpense:2.5,
+			MiscExpense:2.5,
+			PropMngtExpense:5,
+			VacancyExpense:5,
+			TotalExpenses: 20,
+			HOA: 1200,
+			Taxes: 1000,
+			InterestRate:5,
+			PercentDown:20,
+			LoanTerm:30,
+			// calculated
+			TotalCashInvested: 0,
 			NetOperatingIncome: 0,
 			CashFlow: 0,
 			CashFlowYearly: 0,
 			CoCROI: 0,
 			Cap: 0,
-			TotalExpenses: 20,
+			MonthlyMortgagePayment:0,
 		}
 		this.handleFieldChange = this.handleFieldChange.bind(this);
 	}
@@ -33,7 +46,7 @@ class RentalPropertyEvaluator extends React.Component {
 	calculateAll() {
 		this.setState( ( prevState ) => {
 			const newState = { ...prevState };
-			newState.TotalCashInvested = newState.PurchasePrice + newState.ClosingCosts;
+			newState.TotalCashInvested = ( newState.PurchasePrice * ( newState.PercentDown * 0.01 ) ) + newState.ClosingCosts;
 			newState.CashFlowYearly = RPECalc.cashflow( ( newState.RentPrice * 12 ), ( ( newState.TotalExpenses * .01 ) * ( newState.RentPrice * 12 ) ) );
 			newState.CashFlow = newState.CashFlowYearly / 12;
 			newState.CoCROI = RPECalc.cocroi(newState.TotalCashInvested, newState.CashFlowYearly);
@@ -49,8 +62,8 @@ class RentalPropertyEvaluator extends React.Component {
 	render() {
 		return(
 			<section className="flex space-between width-three-quarters flex-wrap">
-				<FieldsSection sectionTitle={"Expenses"} handleFieldChange={this.handleFieldChange} curVal={this.state} sectionId="ExpenseSection" fieldsArray={FieldDataObject.ExpenseFormFieldsArray} />
-				<FieldsSection handleFieldChange={this.handleFieldChange} curVal={this.state} sectionId="RentalPropertyEvaluatorForm" fieldsArray={FieldDataObject.EvalFormFieldsArray} />
+				<FieldsSection sectionTitle={"Variable Expenses"} handleFieldChange={this.handleFieldChange} curVal={this.state} sectionId="ExpenseSection" fieldsArray={FieldDataObject.ExpenseFormFieldsArray} />
+				<FieldsSection sectionTitle={"Inputs"} handleFieldChange={this.handleFieldChange} curVal={this.state} sectionId="RentalPropertyEvaluatorForm" fieldsArray={FieldDataObject.EvalFormFieldsArray} />
 				<section className="FieldsSection side-padded width-one-fifth">
 					<h5 className='left'>Results</h5>
 					{ FieldDataObject.ResultsBoxFields.map( (field,key) => <ResultsField key={key} result={this.state[field.id]} fieldTitle={field.id} isPercentage={field.isPercentage} />) }
