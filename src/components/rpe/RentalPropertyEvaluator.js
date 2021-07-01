@@ -17,13 +17,15 @@ class RentalPropertyEvaluator extends React.Component {
 			MiscExpense:2.5,
 			PropMngtExpense:5,
 			VacancyExpense:5,
-			TotalExpenses: 20,
+			TotalExpenses: 0,
 			HOA: 1200,
 			Taxes: 1000,
 			InterestRate:5,
 			PercentDown:20,
 			LoanTerm:30,
 			// calculated
+			MonthlyIncome: 0,
+			YearlyIncome: 0,
 			TotalCashInvested: 0,
 			NetOperatingIncome: 0,
 			CashFlow: 0,
@@ -31,6 +33,8 @@ class RentalPropertyEvaluator extends React.Component {
 			CoCROI: 0,
 			Cap: 0,
 			MonthlyMortgagePayment:0,
+			DebtServiceCoverageRatio: 0,
+			MonthlyExpenses: 0,
 		}
 		this.handleFieldChange = this.handleFieldChange.bind(this);
 	}
@@ -43,12 +47,17 @@ class RentalPropertyEvaluator extends React.Component {
 	calculateAll() {
 		this.setState( ( prevState ) => {
 			const newState = { ...prevState };
+			newState.TotalExpenses = ( newState.CapEx + newState.MaintRepExpense + newState.MiscExpense + newState.PropMngtExpense + newState.VacancyExpense );
+			newState.MonthlyIncome = newState.RentPrice;
+			newState.YearlyIncome = newState.MonthlyIncome * 12;
+			newState.MonthlyExpenses = ( newState.YearlyIncome * newState.TotalExpenses );
 			newState.TotalCashInvested = ( newState.PurchasePrice * ( newState.PercentDown * 0.01 ) ) + newState.ClosingCosts;
 			newState.CashFlowYearly = RPECalc.cashflow( ( newState.RentPrice * 12 ), ( ( newState.TotalExpenses * .01 ) * ( newState.RentPrice * 12 ) ) );
 			newState.CashFlow = newState.CashFlowYearly / 12;
 			newState.CoCROI = RPECalc.cocroi(newState.TotalCashInvested, newState.CashFlowYearly);
 			newState.Cap = RPECalc.cap(newState.CashFlowYearly, newState.PurchasePrice);
 			newState.MonthlyMortgagePayment = RPECalc.monthlymortgage( ( ( this.state.InterestRate * .01 ) / 12 ),( this.state.LoanTerm * 12 ), this.state.PurchasePrice);
+			newState.DebtServiceCoverageRatio = RPECalc.DebtServiceCoverageRatio( newState.MonthlyMortgagePayment, newState.MonthlyIncome, newState.MonthlyExpenses);
 			return newState;
 		})
 	}
