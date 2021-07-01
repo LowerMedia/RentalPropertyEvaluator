@@ -26,5 +26,9 @@ const RPECalc = {
 	noi: () => {
 		// net operating income
 	},
+
+	TotalCashInvested: (state) => {
+		return state.changeable.PurchasePrice + state.changeable.ClosingCosts;
+	}
 };
 export default RPECalc;
