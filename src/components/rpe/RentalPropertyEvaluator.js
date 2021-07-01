@@ -36,10 +36,7 @@ class RentalPropertyEvaluator extends React.Component {
 	}
 
 	async handleFieldChange(inputChanged, newValue) {
-
-		await this.setState({
-			[inputChanged]: parseInt( newValue )
-		});
+		await this.setState({ [inputChanged]: parseInt( newValue ) });
 		this.calculateAll();
 	}
 
@@ -51,16 +48,13 @@ class RentalPropertyEvaluator extends React.Component {
 			newState.CashFlow = newState.CashFlowYearly / 12;
 			newState.CoCROI = RPECalc.cocroi(newState.TotalCashInvested, newState.CashFlowYearly);
 			newState.Cap = RPECalc.cap(newState.CashFlowYearly, newState.PurchasePrice);
+			newState.MonthlyMortgagePayment = RPECalc.monthlymortgage( ( ( this.state.InterestRate * .01 ) / 12 ),( this.state.LoanTerm * 12 ), this.state.PurchasePrice);
 			return newState;
 		})
 	}
 
 	componentDidMount() {
 		this.calculateAll();
-		console.log(
-			'mortgage test ',
-			RPECalc.monthlymortgage(5,30,100000)
-		);
 	}
 
 	render() {
