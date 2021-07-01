@@ -7,6 +7,9 @@ const FieldDataObject = {
 		{id:"NetOperatingIncome",labelText:"NetOperatingIncome"},
 		{id:"TotalCashInvested",labelText:"TotalCashInvested"},
 		{id:"MonthlyMortgagePayment",labelText:"MonthlyMortgagePayment"},
+		{id:"DebtServiceCoverageRatio",labelText:"DebtServiceCoverageRatio"},
+		{id:"MonthlyIncome",labelText:"MonthlyIncome"},
+		{id:"YearlyIncome",labelText:"YearlyIncome"},
 	],
 
 	EvalFormFieldsArray: [
