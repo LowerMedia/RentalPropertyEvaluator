@@ -35,6 +35,15 @@ class RentalPropertyEvaluator extends React.Component {
 			MonthlyMortgagePayment:0,
 			DebtServiceCoverageRatio: 0,
 			MonthlyExpenses: 0,
+			//
+			changeable: {
+				PurchasePrice: 155000,
+				ClosingCosts: 1000
+			},
+			calculated: {
+				TotalCashInvested: 0,
+				// MonthlyMortgagePayment: 0,
+			}
 		}
 		this.handleFieldChange = this.handleFieldChange.bind(this);
 	}
@@ -62,8 +71,24 @@ class RentalPropertyEvaluator extends React.Component {
 		})
 	}
 
+	async calcAllDynamically() {
+
+		console.log(this.state.calculated);
+		await this.setState( ( prevState ) => {
+			const newState = { ...prevState };
+			for (var key of Object.keys(newState.calculated)) {
+				newState.calculated[ key ] = RPECalc.[key](this.state);
+			}
+			return newState;
+		})
+
+		console.log(this.state.calculated);
+
+	}
+
 	componentDidMount() {
 		this.calculateAll();
+		this.calcAllDynamically();
 	}
 
 	render() {
