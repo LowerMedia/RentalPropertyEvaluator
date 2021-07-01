@@ -15,8 +15,12 @@ const RPECalc = {
 		return ( loanAmount * interest * Math.pow( ( 1 + interest ), term ) ) / ( Math.pow( ( 1 + interest), term) - 1 );
 	},
 
-	dtir: () => {
+	DebtServiceCoverageRatio: (cashflowForDebtService, TotalDebtService) => {
 		// debt to income ratio
+
+		return cashflowForDebtService / TotalDebtService;
+
+		//cash flow available for debt service / total debt service
 	},
 
 	noi: () => {
