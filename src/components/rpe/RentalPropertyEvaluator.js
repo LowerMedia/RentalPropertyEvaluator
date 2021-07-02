@@ -13,18 +13,18 @@ class RentalPropertyEvaluator extends React.Component {
 			ClosingCosts: 1000, // moved below to changeable
 			RentPrice: 1000, // moved below to changeable
 			CapEx:5,
-			MaintRepExpense:2.5,
-			MiscExpense:2.5,
-			PropMngtExpense:5,
-			VacancyExpense:5,
+			MaintRepExpense:2.5, // moved below to changeable
+			MiscExpense:2.5, // moved below to changeable
+			PropMngtExpense:5, // moved below to changeable
+			VacancyExpense:5, // moved below to changeable
 			TotalExpenses: 0,
-			HOA: 1200,
-			Taxes: 1000,
+			HOA: 1200, // moved below to changeable
+			Taxes: 1000, // moved below to changeable
 			InterestRate:5, // moved below to changeable
 			PercentDown:20,
 			LoanTerm:30, // moved below to changeable
 			// calculated
-			MonthlyIncome: 0,
+			MonthlyIncome: 0, // moved below, changed name
 			YearlyIncome: 0,
 			TotalCashInvested: 0, // moved below to calculated
 			NetOperatingIncome: 0,
@@ -42,14 +42,23 @@ class RentalPropertyEvaluator extends React.Component {
 				MonthlyRent: 1000,
 				InterestRate: 5,
 				LoanTerm: 30,
+				CapEx:5,
+				MaintRepExpense:2.5,
+				MiscExpense:2.5,
+				PropMngtExpense:5,
+				VacancyExpense:5,
+				HOA: 1200,
+				Taxes: 1000,
 			},
 			calculated: {
 				TotalCashInvested: 0,
 				TotalMonthlyIncome: 0,
+				TotalYearlyIncome: 0,
 				CashFlow: 0,
 				CashFlowYearly: 0,
 				TotalMonthlyExpenses: 0,
 				MonthlyMortgagePayment: 0,
+				TotalPercentageExpensesEstimate: 0,
 			}
 		}
 		this.handleFieldChange = this.handleFieldChange.bind(this);
