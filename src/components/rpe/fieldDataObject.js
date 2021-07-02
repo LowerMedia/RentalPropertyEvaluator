@@ -8,12 +8,12 @@ const FieldDataObject = {
 		{id:"TotalCashInvested",labelText:"TotalCashInvested"},
 		{id:"MonthlyMortgagePayment",labelText:"MonthlyMortgagePayment"},
 		{id:"DebtServiceCoverageRatio",labelText:"DebtServiceCoverageRatio"},
-		{id:"MonthlyIncome",labelText:"MonthlyIncome"},
-		{id:"YearlyIncome",labelText:"YearlyIncome"},
+		{id:"TotalMonthlyIncome",labelText:"MonthlyIncome"},
+		{id:"TotalYearlyIncome",labelText:"YearlyIncome"},
 	],
 
 	EvalFormFieldsArray: [
-		{id:"RentPrice",labelText:"Estimated Rent: "},
+		{id:"MonthlyRent",labelText:"Estimated Rent: "},
 		{id:"PurchasePrice",labelText:"Purchase Price: "},
 		{id:"PercentDown",labelText:"Percent Down: "},
 		{id:"InterestRate",labelText:"Interest Rate: "},
