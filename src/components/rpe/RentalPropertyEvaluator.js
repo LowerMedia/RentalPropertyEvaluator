@@ -42,13 +42,15 @@ class RentalPropertyEvaluator extends React.Component {
 	}
 
 	async handleFieldChange(inputChanged, newValue) {
-		await this.setState({ [inputChanged]: parseInt( newValue ) });
-		this.calcAllDynamically();
+		await this.setState( ( prevState ) => {
+			const newState = { ...prevState };
+			newState.changeable[inputChanged] = parseInt( newValue );
+			return newState;
+		})
+		await this.calcAllDynamically();
 	}
 
 	async calcAllDynamically() {
-
-		console.log(this.state.calculated);
 		await this.setState( ( prevState ) => {
 			const newState = { ...prevState };
 			for (var key of Object.keys(newState.calculated)) {
@@ -56,9 +58,6 @@ class RentalPropertyEvaluator extends React.Component {
 			}
 			return newState;
 		})
-
-		console.log(this.state.calculated);
-
 	}
 
 	componentDidMount() {
