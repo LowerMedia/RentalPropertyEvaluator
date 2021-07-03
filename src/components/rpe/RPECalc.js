@@ -30,10 +30,7 @@ const RPECalc = {
 	},
 
 	MonthlyMortgagePayment: (state) => {
-		const loanAmount = state.calculated.TotalCashInvested;
-		const interest = ( state.changeable.InterestRate * 0.01 ) / 12;
-		const term = state.changeable.LoanTerm * 12;
-		return ( loanAmount * interest * Math.pow( ( 1 + interest ), term ) ) / ( Math.pow( ( 1 + interest), term) - 1 );
+		return ( state.calculated.TotalCashInvested * ( ( state.changeable.InterestRate * 0.01 ) / 12 ) * Math.pow( ( 1 + ( ( state.changeable.InterestRate * 0.01 ) / 12 ) ), ( state.changeable.LoanTerm * 12 ) ) ) / ( Math.pow( ( 1 + ( ( state.changeable.InterestRate * 0.01 ) / 12 )), ( state.changeable.LoanTerm * 12 )) - 1 );
 	},
 
 	YearlyMortgagePayment: (state) => {
