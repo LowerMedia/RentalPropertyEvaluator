@@ -41,19 +41,16 @@ const RPECalc = {
 		return 99// cashflowForDebtService / TotalDebtService; //cash flow available for debt service / total debt service
 	},
 
-	Cap: (state) => {
-		// capitalization rate
-		return 99;
+	Cap: (state) => { // capitalization rate
+		return ( state.calculated.NetOperatingIncome / state.calculated.TotalCashInvested ) * 1000;
 	},
 
-	CoCROI: (state) => {
-		// cash on cash return on investment
-		return 99;
+	CoCROI: (state) => { // cash on cash return on investment
+		return ( state.calculated.TotalYearlyIncome / state.calculated.TotalCashInvested ) * 100; // TODO: ( ( ( Gross Rent ) + ( Other Income) ) - ( Vacancy + Operating Expenses + Annual Mortgage Payments ) ) / Total Cash Invested
 	},
 
-	NetOperatingIncome: (state) => {
-		// net operating income
-		return 99;
+	NetOperatingIncome: (state) => { // net operating income
+		return state.calculated.TotalMonthlyIncome - state.calculated.TotalMonthlyExpenses;
 	},
 
 	TotalCashInvested: (state) => {
