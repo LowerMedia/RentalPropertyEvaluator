@@ -3,7 +3,7 @@ const FieldDataObject = {
 		{id:"CashFlow",labelText:"CashFlow"},
 		{id:"CashFlowYearly",labelText:"CashFlowYearly"},
 		{id:"CoCROI",labelText:"CoCROI",isPercentage:"true"},
-		{id:"Cap",labelText:"Cap"},
+		{id:"Cap",labelText:"Cap",isPercentage:"true"},
 		{id:"NetOperatingIncome",labelText:"NetOperatingIncome"},
 		{id:"TotalCashInvested",labelText:"TotalCashInvested"},
 		{id:"MonthlyMortgagePayment",labelText:"MonthlyMortgagePayment"},
