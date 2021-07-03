@@ -19,8 +19,8 @@ class RentalPropertyEvaluator extends React.Component {
 				MiscExpense:2.5,
 				PropMngtExpense:5,
 				VacancyExpense:5,
-				HOA: 1200,
-				Taxes: 1000,
+				HOA: 0,
+				Taxes: 0,
 				PercentDown:0,
 			},
 			calculated: {
