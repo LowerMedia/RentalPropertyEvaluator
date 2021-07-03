@@ -31,6 +31,7 @@ class RentalPropertyEvaluator extends React.Component {
 				CashFlowYearly: 0,
 				TotalMonthlyExpenses: 0,
 				MonthlyMortgagePayment: 0,
+				YearlyMortgagePayment: 0,
 				TotalPercentageExpensesEstimate: 0,
 				NetOperatingIncome: 0,
 				CoCROI: 0,

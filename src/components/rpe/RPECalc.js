@@ -36,9 +36,12 @@ const RPECalc = {
 		return ( loanAmount * interest * Math.pow( ( 1 + interest ), term ) ) / ( Math.pow( ( 1 + interest), term) - 1 );
 	},
 
-	DebtServiceCoverageRatio: (cashflowForDebtService, TotalDebtService) => {
-		// debt to income ratio
-		return 99// cashflowForDebtService / TotalDebtService; //cash flow available for debt service / total debt service
+	YearlyMortgagePayment: (state) => {
+		return state.calculated.MonthlyMortgagePayment * 12;
+	},
+
+	DebtServiceCoverageRatio: (state) => { // debt to income ratio - cash flow available for debt service / total debt service
+		return state.calculated.CashFlowYearly / state.calculated.YearlyMortgagePayment;
 	},
 
 	Cap: (state) => { // capitalization rate
