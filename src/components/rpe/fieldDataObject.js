@@ -1,13 +1,13 @@
 const FieldDataObject = {
 	ResultsBoxFields: [
-		{id:"CashFlow",labelText:"CashFlow"},
-		{id:"CashFlowYearly",labelText:"CashFlowYearly"},
 		{id:"CoCROI",labelText:"CoCROI",isPercentage:"true"},
 		{id:"Cap",labelText:"Cap",isPercentage:"true"},
+		{id:"DebtServiceCoverageRatio",labelText:"DebtServiceCoverageRatio"},
+		{id:"CashFlow",labelText:"CashFlow"},
+		{id:"CashFlowYearly",labelText:"CashFlowYearly"},
 		{id:"NetOperatingIncome",labelText:"NetOperatingIncome"},
 		{id:"TotalCashInvested",labelText:"TotalCashInvested"},
 		{id:"MonthlyMortgagePayment",labelText:"MonthlyMortgagePayment"},
-		{id:"DebtServiceCoverageRatio",labelText:"DebtServiceCoverageRatio"},
 		{id:"TotalMonthlyIncome",labelText:"MonthlyIncome"},
 		{id:"TotalYearlyIncome",labelText:"YearlyIncome"},
 	],
