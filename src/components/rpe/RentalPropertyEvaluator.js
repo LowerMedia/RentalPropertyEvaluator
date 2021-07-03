@@ -62,6 +62,7 @@ class RentalPropertyEvaluator extends React.Component {
 			})
 			count--;
 		}
+		document.getElementById('TotalExpenses').value = this.state.calculated.TotalMonthlyExpenses.toFixed(2); // TODO: fix via passing updated state to input field
 	}
 
 	componentDidMount() {
