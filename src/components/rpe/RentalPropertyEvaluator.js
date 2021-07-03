@@ -50,18 +50,21 @@ class RentalPropertyEvaluator extends React.Component {
 		await this.calcAllDynamically();
 	}
 
-	async calcAllDynamically() {
-		await this.setState( ( prevState ) => {
-			const newState = { ...prevState };
-			for (var key of Object.keys(newState.calculated)) {
-				newState.calculated[ key ] = RPECalc.[key](this.state);
-			}
-			return newState;
-		})
+	async calcAllDynamically(count = 1) {
+		while ( count ) {
+			await this.setState( ( prevState ) => {
+				const newState = { ...prevState };
+				for (var key of Object.keys(newState.calculated)) {
+					newState.calculated[ key ] = RPECalc.[key](this.state);
+				}
+				return newState;
+			})
+			count--;
+		}
 	}
 
 	componentDidMount() {
-		this.calcAllDynamically();
+		this.calcAllDynamically(2);
 	}
 
 	render() {
