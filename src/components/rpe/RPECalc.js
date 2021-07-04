@@ -1,5 +1,16 @@
 const RPECalc = {
 
+	// TODO: add calcs and results fields for IRR (internal rate of return), 50% rule, and 1% rule
+	// TODO: account for percentage down
+	// TODO: fix off calculations
+	// TODO: combine month and year results and possibly other month year adjustable input fields
+	// TODO: add red/green fail/pass coloring
+
+	EBDITA: (state) => {
+		return 99;
+		// totalIncomeYearly + totalTaxesPaidYearly + totalMortgageInterestPaidYearly + totalDeprectiationCostsYearly + totalAmoritizationCostsYearly
+	},
+
 	CashFlow: (state) => {
 		return state.calculated.TotalMonthlyIncome - state.calculated.TotalMonthlyExpenses;
 	},
@@ -53,7 +64,7 @@ const RPECalc = {
 	},
 
 	TotalCashInvested: (state) => {
-		return state.changeable.PurchasePrice + state.changeable.ClosingCosts;
+		return state.changeable.PurchasePrice + state.changeable.ClosingCosts; // TODO: account for percent down, actual tci is only the amount put down and closing costs
 	}
 };
 export default RPECalc;

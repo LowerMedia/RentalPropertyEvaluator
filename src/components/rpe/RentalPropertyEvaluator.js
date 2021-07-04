@@ -17,10 +17,10 @@ class RentalPropertyEvaluator extends React.Component {
 				MaintRepExpense:2.5,
 				MiscExpense:2.5,
 				MonthlyRent: 1000,
-				PercentDown:0,
+				PercentDown:20,
 				PropMngtExpense:5,
 				PurchasePrice: 99000,
-				Taxes: 0,
+				Taxes: 1000,
 				VacancyExpense:5,
 			},
 			calculated: {
@@ -37,6 +37,7 @@ class RentalPropertyEvaluator extends React.Component {
 				TotalPercentageExpensesEstimate: 0,
 				TotalYearlyIncome: 0,
 				YearlyMortgagePayment: 0,
+				EBDITA: 0,
 			}
 		}
 		this.handleFieldChange = this.handleFieldChange.bind(this);

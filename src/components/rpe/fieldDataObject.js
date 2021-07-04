@@ -10,6 +10,7 @@ const FieldDataObject = {
 		{id:"MonthlyMortgagePayment",labelText:"MonthlyMortgagePayment"},
 		{id:"TotalMonthlyIncome",labelText:"MonthlyIncome"},
 		{id:"TotalYearlyIncome",labelText:"YearlyIncome"},
+		{id:"EBDITA",labelText:"EBDITA"},
 	],
 
 	EvalFormFieldsArray: [
