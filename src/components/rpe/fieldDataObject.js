@@ -14,23 +14,23 @@ const FieldDataObject = {
 	],
 
 	EvalFormFieldsArray: [
-		{id:"MonthlyRent",labelText:"Estimated Rent: "},
-		{id:"PurchasePrice",labelText:"Purchase Price: "},
-		{id:"PercentDown",labelText:"Percent Down: "},
-		{id:"InterestRate",labelText:"Interest Rate: "},
-		{id:"LoanTerm",labelText:"Loan Term: "},
-		{id:"ClosingCosts",labelText:"Closing Costs: "},
-		{id:"HOA",labelText:"Yearly HOA: "},
-		{id:"Taxes",labelText:"Yearly Tax Estimate: "},
+		{id:"MonthlyRent",labelText:"Estimated Rent: ",numType:"currency"},
+		{id:"PurchasePrice",labelText:"Purchase Price: ",numType:"currency"},
+		{id:"PercentDown",labelText:"Percent Down: ",numType:"currency"},
+		{id:"InterestRate",labelText:"Interest Rate: ",numType:"percentage"},
+		{id:"LoanTerm",labelText:"Loan Term: ",numType:"currency"},
+		{id:"ClosingCosts",labelText:"Closing Costs: ",numType:"currency"},
+		{id:"HOA",labelText:"Yearly HOA: ",numType:"currency"},
+		{id:"Taxes",labelText:"Yearly Tax Estimate: ",numType:"currency"},
 	],
 
 	ExpenseFormFieldsArray: [
-		{id:"CapEx",labelText:"Cap Ex",defaultValue:5},
-		{id:"MaintRepExpense",labelText:"Maint/Rep",defaultValue:2.5},
-		{id:"MiscExpense",labelText:"Misc",defaultValue:2.5},
-		{id:"PropMngtExpense",labelText:"PropMngt",defaultValue:5},
-		{id:"VacancyExpense",labelText:"Vacancy",defaultValue:5},
-		{id:"TotalExpenses",labelText:"Total"},
+		{id:"CapEx",labelText:"Cap Ex",defaultValue:5,numType:"percentage"},
+		{id:"MaintRepExpense",labelText:"Maint/Rep",defaultValue:2.5,numType:"percentage"},
+		{id:"MiscExpense",labelText:"Misc",defaultValue:2.5,numType:"percentage"},
+		{id:"PropMngtExpense",labelText:"PropMngt",defaultValue:5,numType:"percentage"},
+		{id:"VacancyExpense",labelText:"Vacancy",defaultValue:5,numType:"percentage"},
+		{id:"TotalExpenses",labelText:"Total",numType:"currency"},
 	],
 };
 

@@ -10,6 +10,7 @@ export default class FieldsSection extends React.Component {
 			id={field.id} 
 			labelText={field.labelText} 
 			curState={this.props.curState}
+			numType={field.numType}
 		/>);
 	}
 	render() {
