@@ -39,6 +39,10 @@ const RPECalc = {
 		return state.calculated.TotalMonthlyIncome; // TODO: add var for other sources of income (parking, etc)
 	},
 
+	Mortgage: (state) => {
+		return ( state.calculated.TotalCashInvested * ( ( state.changeable.InterestRate * 0.01 ) / 12 ) * Math.pow( ( 1 + ( ( state.changeable.InterestRate * 0.01 ) / 12 ) ), ( state.changeable.LoanTerm * 12 ) ) ) / ( Math.pow( ( 1 + ( ( state.changeable.InterestRate * 0.01 ) / 12 )), ( state.changeable.LoanTerm * 12 )) - 1 );
+	},
+
 	MonthlyMortgagePayment: (state) => {
 		return ( state.calculated.TotalCashInvested * ( ( state.changeable.InterestRate * 0.01 ) / 12 ) * Math.pow( ( 1 + ( ( state.changeable.InterestRate * 0.01 ) / 12 ) ), ( state.changeable.LoanTerm * 12 ) ) ) / ( Math.pow( ( 1 + ( ( state.changeable.InterestRate * 0.01 ) / 12 )), ( state.changeable.LoanTerm * 12 )) - 1 );
 	},

@@ -1,16 +1,17 @@
 const FieldDataObject = {
 	ResultsBoxFields: [
-		{id:"CoCROI",labelText:"CoCROI",isPercentage:"true"},
-		{id:"Cap",labelText:"Cap",isPercentage:"true"},
-		{id:"DebtServiceCoverageRatio",labelText:"DebtServiceCoverageRatio"},
-		{id:"CashFlow",labelText:"CashFlow"},
-		{id:"CashFlowYearly",labelText:"CashFlowYearly"},
-		{id:"NetOperatingIncome",labelText:"NetOperatingIncome"},
-		{id:"TotalCashInvested",labelText:"TotalCashInvested"},
-		{id:"MonthlyMortgagePayment",labelText:"MonthlyMortgagePayment"},
-		{id:"TotalMonthlyIncome",labelText:"MonthlyIncome"},
-		{id:"TotalYearlyIncome",labelText:"YearlyIncome"},
-		{id:"EBDITA",labelText:"EBDITA"},
+		{id:"CoCROI",					timeBased: false, labelText:"CoCROI",	isPercentage:"true"},
+		{id:"Cap",						timeBased: false, labelText:"Cap",		isPercentage:"true"},
+		{id:"DebtServiceCoverageRatio",	timeBased: false, labelText:"Debt Service Coverage Ratio"},
+		{id:"CashFlow",					timeBased: true,  labelText:"CashFlow"},
+		{id:"CashFlowYearly",			timeBased: false, labelText:"Cash Flow Yearly"},
+		{id:"NetOperatingIncome",		timeBased: false, labelText:"Net Operating Income"},
+		{id:"TotalCashInvested",		timeBased: false, labelText:"Total Cash Invested"},
+		{id:"MonthlyMortgagePayment",	timeBased: false, labelText:"Monthly Mortgage Payment"},
+		{id:"Mortgage",					timeBased: true,  labelText:"Mortgage Payment"},
+		{id:"TotalMonthlyIncome",		timeBased: false, labelText:"Monthly Income"},
+		{id:"TotalYearlyIncome",		timeBased: false, labelText:"Yearly Income"},
+		{id:"EBDITA",					timeBased: false, labelText:"EBDITA"},
 	],
 
 	EvalFormFieldsArray: [
@@ -25,12 +26,12 @@ const FieldDataObject = {
 	],
 
 	ExpenseFormFieldsArray: [
-		{id:"CapEx",labelText:"Cap Ex",defaultValue:5,numType:"percentage"},
-		{id:"MaintRepExpense",labelText:"Maint/Rep",defaultValue:2.5,numType:"percentage"},
-		{id:"MiscExpense",labelText:"Misc",defaultValue:2.5,numType:"percentage"},
-		{id:"PropMngtExpense",labelText:"PropMngt",defaultValue:5,numType:"percentage"},
-		{id:"VacancyExpense",labelText:"Vacancy",defaultValue:5,numType:"percentage"},
-		{id:"TotalExpenses",labelText:"Total",numType:"currency"},
+		{id:"CapEx",			labelText:"Cap Ex",		numType:"percentage"},
+		{id:"MaintRepExpense",	labelText:"Maint/Rep",	numType:"percentage"},
+		{id:"MiscExpense",		labelText:"Misc",		numType:"percentage"},
+		{id:"PropMngtExpense",	labelText:"PropMngt",	numType:"percentage"},
+		{id:"VacancyExpense",	labelText:"Vacancy",	numType:"percentage"},
+		{id:"TotalExpenses",	labelText:"Total",		numType:"currency"},
 	],
 };
 
