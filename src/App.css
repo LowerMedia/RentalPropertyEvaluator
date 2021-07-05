@@ -68,6 +68,11 @@ h5 { margin-bottom: 0.5rem; }
 
 .space-between { justify-content: space-between; }
 
+.results-column-container .column:nth-of-type(2) {
+  margin-left:  auto;
+  padding-right:  15px;
+} 
+
 .width-one-fifth { min-width: 20%; }
 
 .width-half { width: 50%; }
@@ -94,7 +99,9 @@ input {
   text-align: right;
   max-width: 75px;
 }
+
 .is-size-half { font-size: 0.5rem; }
+
 .is-size-1 { font-size: 1rem; }
 
 label { padding-right: 15px; }

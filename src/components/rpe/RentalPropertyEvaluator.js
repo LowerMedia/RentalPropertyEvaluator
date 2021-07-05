@@ -30,6 +30,7 @@ class RentalPropertyEvaluator extends React.Component {
 				CoCROI: 0,
 				DebtServiceCoverageRatio: 0,
 				MonthlyMortgagePayment: 0,
+				Mortgage: 0,
 				NetOperatingIncome: 0,
 				TotalCashInvested: 0,
 				TotalMonthlyExpenses: 0,
@@ -77,7 +78,7 @@ class RentalPropertyEvaluator extends React.Component {
 				<FieldsSection sectionTitle={"Inputs"} handleFieldChange={this.handleFieldChange} curState={this.state} sectionId="RentalPropertyEvaluatorForm" fieldsArray={FieldDataObject.EvalFormFieldsArray} />
 				<section className="FieldsSection side-padded width-one-fifth">
 					<h5 className='left'>Results</h5>
-					{ FieldDataObject.ResultsBoxFields.map( (field,key) => <ResultsField key={key} result={(this.state.calculated[field.id]) ? this.state.calculated[field.id] : this.state[field.id]} fieldTitle={field.id} isPercentage={field.isPercentage} />) }
+					{ FieldDataObject.ResultsBoxFields.map( (field,key) => <ResultsField key={key} result={(this.state.calculated[field.id]) ? this.state.calculated[field.id] : this.state[field.id]} fieldId={field.id} fieldTimeBased={field.timeBased} fieldTitle={field.labelText} isPercentage={field.isPercentage} />) }
 				</section>
 			</section>
 		);
