@@ -111,11 +111,13 @@ label { padding-right: 15px; }
 .formItem { margin-bottom: 2.5px; }
 
 .number-symbol {
-  font-size:  1rem;
-  top:  7.5px;
+  font-size:  0.75rem;
+  top:  7px;
 }
 
 .number-symbol.dollar { left: -10px; }
+
+.number-symbol.percentage { right: -15px; }
 
 .position-relative { position: relative; }
 
