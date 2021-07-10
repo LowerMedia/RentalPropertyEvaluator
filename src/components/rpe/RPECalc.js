@@ -64,7 +64,7 @@ const RPECalc = {
 	},
 
 	TotalCashInvested: (state) => {
-		return state.changeable.PurchasePrice + state.changeable.ClosingCosts; // TODO: account for percent down, actual tci is only the amount put down and closing costs
+		return ( state.changeable.PurchasePrice + state.changeable.ClosingCosts ) - ((state.changeable.PurchasePrice + state.changeable.ClosingCosts) * ( 0.01 * state.changeable.PercentDown ) );
 	}
 };
 export default RPECalc;
