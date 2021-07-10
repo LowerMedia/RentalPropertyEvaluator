@@ -8,7 +8,7 @@ const RPECalc = {
 
 	EBDITA: (state) => {
 		return 99;
-		// totalIncomeYearly + totalTaxesPaidYearly + totalMortgageInterestPaidYearly + totalDeprectiationCostsYearly + totalAmoritizationCostsYearly
+		// state.calculated.TotalYearlyIncome + this.state.changeable.Taxes + totalMortgageInterestPaidYearly + totalDeprectiationCostsYearly + totalAmoritizationCostsYearly
 	},
 
 	CashFlow: (state) => {
