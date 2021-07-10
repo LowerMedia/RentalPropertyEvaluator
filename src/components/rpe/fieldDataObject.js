@@ -17,7 +17,7 @@ const FieldDataObject = {
 	EvalFormFieldsArray: [
 		{id:"MonthlyRent",labelText:"Estimated Rent: ",numType:"currency"},
 		{id:"PurchasePrice",labelText:"Purchase Price: ",numType:"currency"},
-		{id:"PercentDown",labelText:"Percent Down: ",numType:"currency"},
+		{id:"PercentDown",labelText:"Percent Down: ",numType:"percentage"},
 		{id:"InterestRate",labelText:"Interest Rate: ",numType:"percentage"},
 		{id:"LoanTerm",labelText:"Loan Term: ",numType:"currency"},
 		{id:"ClosingCosts",labelText:"Closing Costs: ",numType:"currency"},
