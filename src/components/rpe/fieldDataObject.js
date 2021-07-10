@@ -22,6 +22,7 @@ const FieldDataObject = {
 		{id:"ClosingCosts",labelText:"Closing Costs: ",numType:"currency"},
 		{id:"HOA",labelText:"Yearly HOA: ",numType:"currency"},
 		{id:"Taxes",labelText:"Yearly Tax Estimate: ",numType:"currency"},
+		{id:"Insurance",labelText:"Yearly Insurance Estimate: ",numType:"currency"},
 	],
 
 	ExpenseFormFieldsArray: [
