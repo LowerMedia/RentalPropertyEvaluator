@@ -11,7 +11,8 @@ class RentalPropertyEvaluator extends React.Component {
 			changeable: {
 				CapEx:5,
 				ClosingCosts: 1000,
-				HOA: 0,
+				HOA: 1000,
+				Insurance:1000,
 				InterestRate: 5,
 				LoanTerm: 30,
 				MaintRepExpense:2.5,
