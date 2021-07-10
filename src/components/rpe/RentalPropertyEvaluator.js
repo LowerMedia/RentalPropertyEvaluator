@@ -78,7 +78,7 @@ class RentalPropertyEvaluator extends React.Component {
 				<FieldsSection sectionTitle={"Inputs"} handleFieldChange={this.handleFieldChange} curState={this.state} sectionId="RentalPropertyEvaluatorForm" fieldsArray={FieldDataObject.EvalFormFieldsArray} />
 				<section className="FieldsSection side-padded width-one-fifth">
 					<h5 className='left'>Results</h5>
-					{ FieldDataObject.ResultsBoxFields.map( (field,key) => <ResultsField key={key} result={(this.state.calculated[field.id]) ? this.state.calculated[field.id] : this.state[field.id]} fieldTitle={field.id} isPercentage={field.isPercentage} />) }
+					{ FieldDataObject.ResultsBoxFields.map( (field,key) => <ResultsField key={key} result={(this.state.calculated[field.id]) ? this.state.calculated[field.id] : this.state[field.id]} fieldTitle={field.id} labelText={field.labelText} monthYear={field.monthYear} isPercentage={field.isPercentage} />) }
 				</section>
 			</section>
 		);

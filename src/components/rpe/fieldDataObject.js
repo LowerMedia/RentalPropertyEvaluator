@@ -1,16 +1,14 @@
 const FieldDataObject = {
 	ResultsBoxFields: [
+		{id:"EBDITA",labelText:"EBDITA"},
 		{id:"CoCROI",labelText:"CoCROI",isPercentage:"true"},
 		{id:"Cap",labelText:"Cap",isPercentage:"true"},
 		{id:"DebtServiceCoverageRatio",labelText:"DebtServiceCoverageRatio"},
-		{id:"CashFlow",labelText:"CashFlow"},
-		{id:"CashFlowYearly",labelText:"CashFlowYearly"},
-		{id:"NetOperatingIncome",labelText:"NetOperatingIncome"},
 		{id:"TotalCashInvested",labelText:"TotalCashInvested"},
-		{id:"MonthlyMortgagePayment",labelText:"MonthlyMortgagePayment"},
-		{id:"TotalMonthlyIncome",labelText:"MonthlyIncome"},
-		{id:"TotalYearlyIncome",labelText:"YearlyIncome"},
-		{id:"EBDITA",labelText:"EBDITA"},
+		{id:"NetOperatingIncome",labelText:"NOI", monthYear:true},
+		{id:"CashFlow",labelText:"CashFlow", monthYear:true},
+		{id:"TotalMonthlyIncome",labelText:"Income", monthYear:true},
+		{id:"MonthlyMortgagePayment",labelText:"Mortgage", monthYear:true},
 	],
 
 	EvalFormFieldsArray: [
