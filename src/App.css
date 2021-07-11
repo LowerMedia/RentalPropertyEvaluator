@@ -35,7 +35,7 @@
   color: black;
 }
 
-.FieldsSection span { color: darkgreen; }
+.FieldsSection span { color: black; }
 
 @keyframes App-logo-spin {
   from {
@@ -130,3 +130,7 @@ label { padding-right: 15px; }
 .has-background-black { background-color: black; }
 
 .circle-background { border-radius: 100px 100px 100px 100px; }
+
+[data-ispassing="false"] span { color: red; }
+
+[data-ispassing="true"] span { color: darkgreen; }

@@ -1,9 +1,9 @@
 const FieldDataObject = {
 	ResultsBoxFields: [
 		{id:"EBDITA",labelText:"EBDITA"},
-		{id:"CoCROI",labelText:"CoCROI",isPercentage:"true"},
-		{id:"Cap",labelText:"Cap",isPercentage:"true"},
-		{id:"DebtServiceCoverageRatio",labelText:"DebtServiceCoverageRatio"},
+		{id:"CoCROI",labelText:"CoCROI",isPercentage:"true",threshold:10},
+		{id:"Cap",labelText:"Cap",isPercentage:"true",threshold:7.5},
+		{id:"DebtServiceCoverageRatio",labelText:"DebtServiceCoverageRatio",threshold:1.25},
 		{id:"TotalCashInvested",labelText:"TotalCashInvested"},
 		{id:"NetOperatingIncome",labelText:"NOI", monthYear:true},
 		{id:"CashFlow",labelText:"CashFlow", monthYear:true},
