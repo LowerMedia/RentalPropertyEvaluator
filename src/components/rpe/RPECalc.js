@@ -52,11 +52,11 @@ const RPECalc = {
 	},
 
 	Cap: (state) => { // capitalization rate
-		return ( state.calculated.NetOperatingIncome / state.changeable.PurchasePrice ) * 1000;
+		return ( state.calculated.CashFlowYearly / state.changeable.PurchasePrice ) * 100;
 	},
 
 	CoCROI: (state) => { // cash on cash return on investment
-		return ( state.calculated.TotalYearlyIncome / state.calculated.TotalCashInvested ) * 100; // TODO: ( ( ( Gross Rent ) + ( Other Income) ) - ( Vacancy + Operating Expenses + Annual Mortgage Payments ) ) / Total Cash Invested
+		return ( state.calculated.CashFlowYearly / state.calculated.TotalCashInvested ) * 100; // TODO: ( ( ( Gross Rent ) + ( Other Income) ) - ( Vacancy + Operating Expenses + Annual Mortgage Payments ) ) / Total Cash Invested
 	},
 
 	NetOperatingIncome: (state) => { // net operating income
