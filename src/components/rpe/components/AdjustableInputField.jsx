@@ -3,7 +3,7 @@ import React from 'react';
 export default class AdjustableInputField extends React.Component {
 	constructor(props) {
 		super(props);
-		console.log(this.props.curState.changeable[this.props.id]);
+		// console.log(this.props.curState.changeable[this.props.id]);
 		this.state = {value: (this.props.curState.changeable[this.props.id]) ? this.props.curState.changeable[this.props.id] : "0"};
 		this.childHandleFieldChange = this.childHandleFieldChange.bind(this);
 		this.inputBefore = ( this.props.numType === "currency" ) ? "$" : false;

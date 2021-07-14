@@ -40,7 +40,7 @@ const RPECalc = {
 	},
 
 	MonthlyMortgagePayment: (state) => {
-		return ( state.calculated.TotalCashInvested * ( ( state.changeable.InterestRate * 0.01 ) / 12 ) * Math.pow( ( 1 + ( ( state.changeable.InterestRate * 0.01 ) / 12 ) ), ( state.changeable.LoanTerm * 12 ) ) ) / ( Math.pow( ( 1 + ( ( state.changeable.InterestRate * 0.01 ) / 12 )), ( state.changeable.LoanTerm * 12 )) - 1 );
+		return ( state.calculated.TotalLoanAmount * ( ( state.changeable.InterestRate * 0.01 ) / 12 ) * Math.pow( ( 1 + ( ( state.changeable.InterestRate * 0.01 ) / 12 ) ), ( state.changeable.LoanTerm * 12 ) ) ) / ( Math.pow( ( 1 + ( ( state.changeable.InterestRate * 0.01 ) / 12 )), ( state.changeable.LoanTerm * 12 )) - 1 );
 	},
 
 	YearlyMortgagePayment: (state) => {
@@ -52,7 +52,7 @@ const RPECalc = {
 	},
 
 	Cap: (state) => { // capitalization rate
-		return ( state.calculated.NetOperatingIncome / state.calculated.TotalCashInvested ) * 1000;
+		return ( state.calculated.NetOperatingIncome / state.changeable.PurchasePrice ) * 1000;
 	},
 
 	CoCROI: (state) => { // cash on cash return on investment
@@ -63,8 +63,12 @@ const RPECalc = {
 		return state.calculated.TotalMonthlyIncome - state.calculated.TotalMonthlyExpenses;
 	},
 
-	TotalCashInvested: (state) => {
+	TotalLoanAmount: (state) => {
 		return ( state.changeable.PurchasePrice + state.changeable.ClosingCosts ) - ((state.changeable.PurchasePrice + state.changeable.ClosingCosts) * ( 0.01 * state.changeable.PercentDown ) );
+	},
+
+	TotalCashInvested: (state) => {
+		return ((state.changeable.PurchasePrice + state.changeable.ClosingCosts) * ( 0.01 * state.changeable.PercentDown ) );
 	}
 };
 export default RPECalc;
