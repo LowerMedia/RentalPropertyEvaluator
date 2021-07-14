@@ -10,17 +10,17 @@ class RentalPropertyEvaluator extends React.Component {
 		this.state = {
 			changeable: {
 				CapEx:5,
-				ClosingCosts: 1000,
+				ClosingCosts: 0,
 				HOA: 1000,
 				Insurance:1000,
 				InterestRate: 5,
 				LoanTerm: 30,
 				MaintRepExpense:2.5,
 				MiscExpense:2.5,
-				MonthlyRent: 1000,
+				MonthlyRent: 1650,
 				PercentDown:20,
 				PropMngtExpense:5,
-				PurchasePrice: 99000,
+				PurchasePrice: 100000,
 				Taxes: 1000,
 				VacancyExpense:5,
 			},
@@ -54,7 +54,7 @@ class RentalPropertyEvaluator extends React.Component {
 		await this.calcAllDynamically();
 	}
 
-	async calcAllDynamically(count = 1) {
+	async calcAllDynamically(count = 2) {
 		while ( count ) {
 			await this.setState( ( prevState ) => {
 				const newState = { ...prevState };
@@ -69,7 +69,7 @@ class RentalPropertyEvaluator extends React.Component {
 	}
 
 	componentDidMount() {
-		this.calcAllDynamically(2);
+		this.calcAllDynamically();
 	}
 
 	render() {
