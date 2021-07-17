@@ -1,10 +1,12 @@
 const RPECalc = {
 
 	// TODO: add calcs and results fields for IRR (internal rate of return), 50% rule, and 1% rule
-	// TODO: account for percentage down
-	// TODO: fix off calculations
-	// TODO: combine month and year results and possibly other month year adjustable input fields
-	// TODO: add red/green fail/pass coloring
+	// X - DONE - TODO: account for percentage down
+	// X - DONE - TODO: fix off calculations
+	// X - DONE - TODO: combine month and year results and possibly other month year adjustable input fields
+	// X - DONE - TODO: add red/green fail/pass coloring
+	// TODO: fix CoCROI to account for taxes (should be cashflow BEFORE taxes are accounted for)
+	// TODO: alpha sort or break down income/expense/other and then alpha sort
 
 	EBDITA: (state) => {
 		return 99;
@@ -17,6 +19,11 @@ const RPECalc = {
 	
 	CashFlowYearly: (state) => {
 		return state.calculated.CashFlow * 12;
+	},
+	
+	CapEx: (state) => {
+		console.log('calc: ', state.changeable.PurchasePrice , state.changeable.CapEx * .01, state.changeable.PurchasePrice * ( state.changeable.CapEx * .01 ));
+		return state.changeable.PurchasePrice * ( state.changeable.CapEx * .01 );//100000*(5*.01)
 	},
 
 	TotalMonthlyIncome: (state) => {
