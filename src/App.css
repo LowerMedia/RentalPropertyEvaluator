@@ -148,6 +148,11 @@ label { padding-right: 15px; }
 span.calculatedValue {
   position: absolute;
   font-size: 1rem;
-  right: -70px;
+  right: -100px;
   top: 10px;
+}
+
+.disabled {
+  background: none;
+  border: none;
 }
