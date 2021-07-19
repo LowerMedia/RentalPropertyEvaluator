@@ -43,7 +43,7 @@ class RentalPropertyEvaluator extends React.Component {
 	render() {
 		return(
 			<section className="grid px space-between width-three-quarters flex-wrap">
-				<FieldsSection PurchasePrice={this.state.changeable.PurchasePrice} sectionTitle={"Variable Expenses (Year)"} handleFieldChange={this.handleFieldChange} curState={this.state} sectionId="ExpenseSection" fieldsArray={FieldDataObject.ExpenseFormFieldsArray} />
+				<FieldsSection PurchasePrice={this.state.changeable.PurchasePrice} sectionTitle={"Variable Expenses"} handleFieldChange={this.handleFieldChange} curState={this.state} sectionId="ExpenseSection" fieldsArray={FieldDataObject.ExpenseFormFieldsArray} />
 				<FieldsSection PurchasePrice={this.state.changeable.PurchasePrice} sectionTitle={"Inputs"} handleFieldChange={this.handleFieldChange} curState={this.state} sectionId="RentalPropertyEvaluatorForm" fieldsArray={FieldDataObject.EvalFormFieldsArray} />
 				<section className="FieldsSection side-padded width-one-fifth">
 					<h5 className='left'>Results</h5>
