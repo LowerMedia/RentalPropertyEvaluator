@@ -22,23 +22,23 @@ const RPECalc = {
 	},
 	
 	CapEx: (state) => {
-		return state.changeable.PurchasePrice * ( state.changeable.CapEx * .01 );
+		return state.changeable.MonthlyRent * ( state.changeable.CapEx * .01 );
 	},
 	
 	MaintRepExpense: (state) => {
-		return state.changeable.PurchasePrice * ( state.changeable.MaintRepExpense * .01 );
+		return state.changeable.MonthlyRent * ( state.changeable.MaintRepExpense * .01 );
 	},
 	
 	PropMngtExpense: (state) => {
-		return state.changeable.PurchasePrice * ( state.changeable.PropMngtExpense * .01 );
+		return state.changeable.MonthlyRent * ( state.changeable.PropMngtExpense * .01 );
 	},
 	
 	MiscExpense: (state) => {
-		return state.changeable.PurchasePrice * ( state.changeable.MiscExpense * .01 );
+		return state.changeable.MonthlyRent * ( state.changeable.MiscExpense * .01 );
 	},
 	
 	VacancyExpense: (state) => {
-		return state.changeable.PurchasePrice * ( state.changeable.VacancyExpense * .01 );
+		return state.changeable.MonthlyRent * ( state.changeable.VacancyExpense * .01 );
 	},
 
 	TotalMonthlyIncome: (state) => {
