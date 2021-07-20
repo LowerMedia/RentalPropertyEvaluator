@@ -62,7 +62,17 @@ h5 { margin-bottom: 0.5rem; }
 
 .pl-1 { padding-left: 1rem; }
 
+.px {
+  padding-top:  3rem;
+  padding-bottom:  3rem;
+}
+
 .flex { display: flex; }
+
+.grid {
+  display: grid;
+  grid-template-columns: 25% 27.5% 20%;
+}
 
 .flex-wrap { flex-wrap: wrap; }
 
@@ -134,3 +144,10 @@ label { padding-right: 15px; }
 [data-ispassing="false"] span { color: red; }
 
 [data-ispassing="true"] span { color: darkgreen; }
+
+span.calculatedValue {
+  position: absolute;
+  font-size: 1rem;
+  right: -70px;
+  top: 10px;
+}
