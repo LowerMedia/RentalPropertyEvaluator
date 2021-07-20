@@ -4,9 +4,16 @@ const RPECalc = {
 	// TODO: fix CoCROI to account for taxes (should be cashflow BEFORE taxes are accounted for)
 	// TODO: alpha sort or break down income/expense/other and then alpha sort
 
+	// CostBasis: (state) => {
+	// 	let LandValue = state.changeable.PurchasePrice * 0.02;
+	// 	return state.calculated.TotalCashInvested - LandValue;
+	// },
+
 	EBDITA: (state) => {
-		return 99;
-		// state.calculated.TotalYearlyIncome + this.state.changeable.Taxes + totalMortgageInterestPaidYearly + totalDeprectiationCostsYearly + totalAmoritizationCostsYearly
+		let totalMortgageInterestPaidYearly = 0,
+			totalDeprectiationCostsYearly = 0, // cost basis * 3.636%
+			totalAmoritizationCostsYearly = 0;
+		return state.calculated.TotalYearlyIncome + state.changeable.Taxes + totalMortgageInterestPaidYearly + totalDeprectiationCostsYearly + totalAmoritizationCostsYearly
 	},
 
 	CashFlow: (state) => {
