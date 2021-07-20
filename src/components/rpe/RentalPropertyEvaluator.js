@@ -7,41 +7,7 @@ import RPECalc			from './RPECalc';
 class RentalPropertyEvaluator extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			changeable: {
-				CapEx:5,
-				ClosingCosts: 0,
-				HOA: 1000,
-				Insurance:1000,
-				InterestRate: 5,
-				LoanTerm: 30,
-				MaintRepExpense:2.5,
-				MiscExpense:2.5,
-				MonthlyRent: 1650,
-				PercentDown:20,
-				PropMngtExpense:5,
-				PurchasePrice: 100000,
-				Taxes: 1000,
-				VacancyExpense:5,
-			},
-			calculated: {
-				Cap: 0,
-				CashFlow: 0,
-				CashFlowYearly: 0,
-				CoCROI: 0,
-				DebtServiceCoverageRatio: 0,
-				MonthlyMortgagePayment: 0,
-				NetOperatingIncome: 0,
-				TotalCashInvested: 0,
-				TotalLoanAmount: 0,
-				TotalMonthlyExpenses: 0,
-				TotalMonthlyIncome: 0,
-				TotalPercentageExpensesEstimate: 0,
-				TotalYearlyIncome: 0,
-				YearlyMortgagePayment: 0,
-				EBDITA: 0,
-			}
-		}
+		this.state = {changeable: FieldDataObject.changeable, calculated:FieldDataObject.calculated};
 		this.handleFieldChange = this.handleFieldChange.bind(this);
 	}
 
