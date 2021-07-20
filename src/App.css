@@ -71,7 +71,8 @@ h5 { margin-bottom: 0.5rem; }
 
 .grid {
   display: grid;
-  grid-template-columns: 25% 27.5% 20%;
+  grid-template-columns: 32% 27.5% 27.5%;
+  column-gap: 100px;
 }
 
 .flex-wrap { flex-wrap: wrap; }
@@ -147,7 +148,12 @@ label { padding-right: 15px; }
 
 span.calculatedValue {
   position: absolute;
-  font-size: 1rem;
-  right: -70px;
+  font-size: 0.75rem;
+  right: -55px;
   top: 10px;
+}
+
+.disabled {
+  background: none;
+  border: none;
 }
