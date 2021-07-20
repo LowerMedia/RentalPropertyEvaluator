@@ -123,7 +123,7 @@ label { padding-right: 15px; }
 
 .number-symbol {
   font-size:  0.75rem;
-  top:  7px;
+  top:  12.5px;
 }
 
 .number-symbol.dollar { left: -10px; }
@@ -156,4 +156,16 @@ span.calculatedValue {
 .disabled {
   background: none;
   border: none;
+  outline: none;
+  cursor: default;
+}
+
+.results span:first-of-type:not(:last-of-type) {
+  margin-left: auto;
+  margin-right: 25px;
+}
+
+.results span:last-of-type {
+  min-width: 75px;
+  text-align: right;
 }
