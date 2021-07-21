@@ -1,3 +1,6 @@
+.hide-branding .App-header,
+.hide-branding .App-link { display: none; }
+
 .App {
   text-align: center;
 }
@@ -149,7 +152,7 @@ label { padding-right: 15px; }
 span.calculatedValue {
   position: absolute;
   font-size: 0.75rem;
-  right: -55px;
+  right: -75px;
   top: 10px;
 }
 

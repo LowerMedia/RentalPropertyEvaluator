@@ -5,7 +5,7 @@ import RentalPropertyEvaluator from './components/rpe/RentalPropertyEvaluator';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App hide-branding">
       <Header />
       <RentalPropertyEvaluator />
       <Footer />
