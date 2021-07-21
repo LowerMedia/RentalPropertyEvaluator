@@ -69,10 +69,10 @@ class RentalPropertyEvaluator extends React.Component {
 	render() {
 		return(
 			<section className="px">
-				<section className="grid px space-between flex-wrap">
+				<section className="grid px space-between flex-wrap columns container">
 					<FieldsSection PurchasePrice={this.state.changeable.PurchasePrice} sectionTitle={"Variable Expenses"} handleFieldChange={this.handleFieldChange} curState={this.state} sectionId="ExpenseSection" fieldsArray={FieldDataObject.ExpenseFormFieldsArray} />
 					<FieldsSection PurchasePrice={this.state.changeable.PurchasePrice} sectionTitle={"Inputs"} handleFieldChange={this.handleFieldChange} curState={this.state} sectionId="RentalPropertyEvaluatorForm" fieldsArray={FieldDataObject.EvalFormFieldsArray} />
-					<section className="FieldsSection side-padded width-one-fifth">
+					<section className="FieldsSection side-padded width-one-fifth column">
 						<h5 className='left'>Results</h5>
 						{ FieldDataObject.ResultsBoxFields.map( (field,key) => <ResultsField key={key} isPassing={(field.threshold)?(this.state.calculated[field.id] > field.threshold)?"true":"false":null} result={(this.state.calculated[field.id]) ? this.state.calculated[field.id] : this.state[field.id]} fieldTitle={field.id} labelText={field.labelText} monthYear={field.monthYear} isPercentage={field.isPercentage} />) }
 					</section>
