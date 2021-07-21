@@ -62,9 +62,6 @@ const FieldDataObject = {
 		{id:"InterestRate",labelText:"Interest Rate: ",numType:"percentage"},
 		{id:"LoanTerm",labelText:"Loan Term: ",numType:"currency"},
 		{id:"ClosingCosts",labelText:"Closing Costs: ",numType:"currency"},
-		{id:"HOA",labelText:"Yearly HOA: ",numType:"currency"},
-		{id:"Taxes",labelText:"Yearly Tax Estimate: ",numType:"currency"},
-		{id:"Insurance",labelText:"Yearly Insurance Estimate: ",numType:"currency"},
 	],
 
 	ExpenseFormFieldsArray: [
@@ -74,8 +71,11 @@ const FieldDataObject = {
 		{id:"PropMngtExpense",labelText:"PropMngt",defaultValue:5,numType:"percentage",fieldType:"variableExpense"},
 		{id:"VacancyExpense",labelText:"Vacancy",defaultValue:5,numType:"percentage",fieldType:"variableExpense"},
 		{id:"TotalPercentageExpensesEstimate",labelText:"Percentage Total",numType:"percentage",fieldType:"variableExpenseTotal"},
-		{id:"TotalExpensesMonthly",labelText:"Total Monthly (incl tax, insur)",numType:"currency",fieldType:"variableExpenseTotal"},
-		{id:"TotalExpensesYearly",labelText:"Total Yearly (incl tax, insur)",numType:"currency",fieldType:"variableExpenseTotal"},
+		{id:"HOA",labelText:"Yearly HOA: ",numType:"currency"},
+		{id:"Taxes",labelText:"Yearly Tax Estimate: ",numType:"currency"},
+		{id:"Insurance",labelText:"Yearly Insurance Estimate: ",numType:"currency"},
+		{id:"TotalExpensesMonthly",labelText:"Total Monthly",numType:"currency",fieldType:"variableExpenseTotal"},
+		{id:"TotalExpensesYearly",labelText:"Total Yearly",numType:"currency",fieldType:"variableExpenseTotal"},
 	],
 };
 
