@@ -44,12 +44,10 @@ class RentalPropertyEvaluator extends React.Component {
 
 	saveStateToLocalStorage() {
 		if ( ! localStorage.getItem('rpeCalculationsSet')) {
-			console.log('local storage set initially');
 			localStorage.setItem('rpeCalculationsSet', true);
 			localStorage.setItem('changeableRPE', JSON.stringify( FieldDataObject.changeable ));
 			localStorage.setItem('calculatedRPE', JSON.stringify( FieldDataObject.calculated ));
 		} else {
-			console.log('local storage set');
 			localStorage.setItem('changeableRPE', JSON.stringify( this.state.changeable ));
 			localStorage.setItem('calculatedRPE', JSON.stringify( this.state.calculated ));
 		}
