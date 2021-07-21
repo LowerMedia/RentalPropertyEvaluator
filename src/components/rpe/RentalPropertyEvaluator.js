@@ -31,6 +31,7 @@ class RentalPropertyEvaluator extends React.Component {
 			})
 			count--;
 		}
+		this.saveStateToLocalStorage();
 		document.getElementById('TotalExpensesMonthly').value = this.state.calculated.TotalExpensesMonthly.toFixed(2); // TODO: fix via passing updated state to input field
 		document.getElementById('TotalExpensesYearly').value = this.state.calculated.TotalExpensesYearly.toFixed(2); // TODO: fix via passing updated state to input field
 		document.getElementById('TotalPercentageExpensesEstimate').value = this.state.calculated.TotalPercentageExpensesEstimate.toFixed(2); // TODO: fix via passing updated state to input field
@@ -38,6 +39,14 @@ class RentalPropertyEvaluator extends React.Component {
 
 	componentDidMount() {
 		this.calcAllDynamically();
+	}
+
+	saveStateToLocalStorage() {
+		for (var key of Object.keys(this.state.calculated)) {
+			localStorage.setItem([key], this.state.calculated[key]);
+		}
+		localStorage.setItem('changeableRPE', JSON.stringify( FieldDataObject.changeable ));
+		localStorage.setItem('calculatedRPE', JSON.stringify( FieldDataObject.calculated ));
 	}
 
 	render() {
