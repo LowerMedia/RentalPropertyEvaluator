@@ -1,27 +1,4 @@
-.hide-branding .App-header,
-.hide-branding .App-link { display: none; }
-
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 8vmin;
-  pointer-events: none;
-  padding:  1vmin;
-}
-
-.App-header .circle-background {
-  position: relative;
-  left:  5px;
-  bottom:  5px;
-}
-
-/*@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}*/
+.hidden { display: none; }
 
 .App {
   background-color: whitesmoke;
@@ -31,10 +8,6 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: black;
-}
-
-.App-link {
   color: black;
 }
 
@@ -72,11 +45,11 @@ h5 { margin-bottom: 0.5rem; }
 
 .flex { display: flex; }
 
-.grid {
+/*.grid {
   display: grid;
   grid-template-columns: 32% 27.5% 27.5%;
   column-gap: 100px;
-}
+}*/
 
 .flex-wrap { flex-wrap: wrap; }
 
@@ -89,20 +62,6 @@ h5 { margin-bottom: 0.5rem; }
 .width-three-quarters { width: 75%; }
 
 .width-full { width: 100%; }
-
-.is-marginless { margin: 0; }
-
-.fixed { position:  fixed; }
-
-.top {
-  padding-top:  10px;
-  top:  0;
-}
-
-.bottom {
-  padding-bottom:  10px;
-  bottom:  0;
-}
 
 input {
   text-align: right;
@@ -117,12 +76,6 @@ label { padding-right: 15px; }
   padding-left:  0.75rem;
   padding-right:  0.75rem;
 }
-
-.ExpenseSection .formItem:after { content: "%"; }
-
-.ExpenseSection input { margin-left: auto; }
-
-.formItem { margin-bottom: 2.5px; }
 
 .number-symbol {
   font-size:  0.75rem;
@@ -161,14 +114,4 @@ span.calculatedValue {
   border: none;
   outline: none;
   cursor: default;
-}
-
-.results span:first-of-type:not(:last-of-type) {
-  margin-left: auto;
-  margin-right: 25px;
-}
-
-.results span:last-of-type {
-  min-width: 75px;
-  text-align: right;
 }
