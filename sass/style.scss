@@ -14,8 +14,8 @@ $beige-lighter: #EFF0EB;
 $family-sans-serif: "Nunito", sans-serif;
 $grey-dark: $brown;
 $grey-light: $beige-light;
-$primary: $purple;
-$link: $pink;
+$primary: forestgreen;
+$link: green;
 $widescreen-enabled: false;
 $fullhd-enabled: false;
 
@@ -26,13 +26,31 @@ $input-border-color: transparent;
 $input-shadow: none;
 
 // @import "../node_modules/bulma/bulma.sass";
-// @import "../node_modules/bulma/sass/utilities/_all.sass";
-// @import "../node_modules/bulma/sass/base/_all.sass";
-// @import "../node_modules/bulma/sass/elements/button.sass";
-// @import "../node_modules/bulma/sass/elements/container.sass";
+@import "../node_modules/bulma/sass/utilities/_all.sass";
+@import "../node_modules/bulma/sass/base/_all.sass";
+@import "../node_modules/bulma/sass/elements/button.sass";
+@import "../node_modules/bulma/sass/elements/container.sass";
 // @import "../node_modules/bulma/sass/elements/title.sass";
-// @import "../node_modules/bulma/sass/form/_all.sass";
-// @import "../node_modules/bulma/sass/components/navbar.sass";
+@import "../node_modules/bulma/sass/form/_all.sass";
+@import "../node_modules/bulma/sass/components/navbar.sass";
 // @import "../node_modules/bulma/sass/layout/hero.sass";
 // @import "../node_modules/bulma/sass/layout/section.sass";
 @import "../node_modules/bulma/sass/grid/_all";
+
+@import "../node_modules/bulma/sass/helpers/_all";
+
+  @media screen and (min-width: 1024px) {
+    .container {
+      max-width: 1200px; } }
+
+.resultsBox { border: 5px groove black; }
+
+.results span:first-of-type:not(:last-of-type) {
+  margin-left: auto;
+  margin-right: 25px;
+}
+
+.results span:last-of-type {
+  min-width: 85px;
+  text-align: right;
+}

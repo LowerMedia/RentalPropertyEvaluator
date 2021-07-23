@@ -2,17 +2,19 @@ import React from 'react';
 
 const Footer = () => {
 	return(
-		<footer className="fixed bottom">
-			<h1 className="is-marginless">
-				<a
-				className="App-link is-size-1"
-				href="https://lowprop.com"
-				target="_blank"
-				rel="noopener noreferrer"
-				>
-					LowProp.Com
-				</a>
-			</h1>
+		<footer className=" width-full navbar pb-0 mt-6">
+			<section className="container">
+				<h5 className="is-marginless has-text-right width-full mb-0">
+					<a
+					className="App-link is-size-6"
+					href="https://9ete.dev"
+					target="_blank"
+					rel="noopener noreferrer"
+					>
+						@9ete  This site was created with React.js & Bulma
+					</a>
+				</h5>
+			</section>
 		</footer>
 	);
 };
