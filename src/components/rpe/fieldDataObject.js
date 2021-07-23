@@ -2,17 +2,17 @@ const FieldDataObject = {
 	
 	changeable: {
 		CapEx:5,
-		ClosingCosts: 3000,
+		ClosingCosts: 1000,
 		HOA: 0,
 		Insurance:800,
-		InterestRate: 4.5,
+		InterestRate: 5,
 		LoanTerm: 30,
 		MaintRepExpense:2.5,
 		MiscExpense:2.5,
 		MonthlyRent: 1000,
 		PercentDown:20,
 		PropMngtExpense:5,
-		PurchasePrice: 100000,
+		PurchasePrice: 99000,
 		Taxes: 800,
 		VacancyExpense:5,
 	},
@@ -28,7 +28,7 @@ const FieldDataObject = {
 		CashFlowYearly: 0,
 		CoCROI: 0,
 		DebtServiceCoverageRatio: 0,
-		MonthlyMortgagePayment: 0,
+		MortgagePayment: 0,
 		NetOperatingIncome: 0,
 		TotalCashInvested: 0,
 		TotalLoanAmount: 0,
@@ -52,7 +52,7 @@ const FieldDataObject = {
 		{id:"NetOperatingIncome",labelText:"NOI", monthYear:true},
 		{id:"CashFlow",labelText:"CashFlow", monthYear:true},
 		{id:"TotalMonthlyIncome",labelText:"Income", monthYear:true},
-		{id:"MonthlyMortgagePayment",labelText:"Mortgage", monthYear:true},
+		{id:"MortgagePayment",labelText:"Mortgage", monthYear:true},
 	],
 
 	EvalFormFieldsArray: [
