@@ -65,12 +65,12 @@ const RPECalc = {
 		return state.calculated.TotalMonthlyIncome; // TODO: add var for other sources of income (parking, etc)
 	},
 
-	MonthlyMortgagePayment: (state) => {
+	MortgagePayment: (state) => {
 		return ( state.calculated.TotalLoanAmount * ( ( state.changeable.InterestRate * 0.01 ) / 12 ) * Math.pow( ( 1 + ( ( state.changeable.InterestRate * 0.01 ) / 12 ) ), ( state.changeable.LoanTerm * 12 ) ) ) / ( Math.pow( ( 1 + ( ( state.changeable.InterestRate * 0.01 ) / 12 )), ( state.changeable.LoanTerm * 12 )) - 1 );
 	},
 
 	YearlyMortgagePayment: (state) => {
-		return state.calculated.MonthlyMortgagePayment * 12;
+		return state.calculated.MortgagePayment * 12;
 	},
 
 	DebtServiceCoverageRatio: (state) => { // debt to income ratio - cash flow available for debt service / total debt service
