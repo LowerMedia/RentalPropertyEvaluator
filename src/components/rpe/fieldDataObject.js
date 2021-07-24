@@ -43,16 +43,16 @@ const FieldDataObject = {
 	},
 
 	ResultsBoxFields: [
-		{id:"EBDITA",labelText:"EBDITA"},
-		{id:"CoCROI",labelText:"CoCROI",isPercentage:"true",threshold:10},
-		{id:"Cap",labelText:"Cap",isPercentage:"true",threshold:7.5},
-		{id:"DebtServiceCoverageRatio",labelText:"DSCR",threshold:1.25},
-		{id:"TotalCashInvested",labelText:"Cash Inv."},
-		{id:"TotalLoanAmount",labelText:"Loan Amt"},
-		{id:"NetOperatingIncome",labelText:"NOI", monthYear:true},
-		{id:"CashFlow",labelText:"CashFlow", monthYear:true},
-		{id:"TotalMonthlyIncome",labelText:"Income", monthYear:true},
-		{id:"MortgagePayment",labelText:"Mortgage", monthYear:true},
+		{id:"EBDITA",labelText:"EBDITA",toolTip:"E = mc^2"},
+		{id:"CoCROI",labelText:"CoCROI",isPercentage:"true",threshold:10,toolTip:"( ( ( Gross Rent ) + ( Other Income) ) - ( Vacancy + Operating Expenses + Annual Mortgage Payments ) )"},
+		{id:"Cap",labelText:"Cap",isPercentage:"true",threshold:7.5,toolTip:"E = mc^2"},
+		{id:"DebtServiceCoverageRatio",labelText:"DSCR",threshold:1.25,toolTip:"debt to income ratio - cash flow available for debt service / total debt service"},
+		{id:"TotalCashInvested",labelText:"Cash Inv.",toolTip:"E = mc^2"},
+		{id:"TotalLoanAmount",labelText:"Loan Amt",toolTip:"E = mc^2"},
+		{id:"NetOperatingIncome",labelText:"NOI", monthYear:true,toolTip:"E = mc^2"},
+		{id:"CashFlow",labelText:"CashFlow", monthYear:true,toolTip:"E = mc^2"},
+		{id:"TotalMonthlyIncome",labelText:"Income", monthYear:true,toolTip:"E = mc^2"},
+		{id:"MortgagePayment",labelText:"Mortgage", monthYear:true,toolTip:"E = mc^2"},
 	],
 
 	EvalFormFieldsArray: [
