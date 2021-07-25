@@ -26,16 +26,25 @@ class RentalPropertyEvaluator extends React.Component {
 			await this.setState( ( prevState ) => {
 				const newState = { ...prevState };
 				for (var key of Object.keys(newState.calculated)) {
-					newState.calculated[ key ] = RPECalc.[key](this.state);
+					try {
+						newState.calculated[ key ] = RPECalc.[key](this.state);
+					} catch(err) {
+						console.error(key, err);
+					}
 				}
 				return newState;
 			})
 			count--;
 		}
 		this.saveStateToLocalStorage();
-		document.getElementById('TotalExpensesMonthly').value = this.state.calculated.TotalExpensesMonthly.toFixed(2); // TODO: fix via passing updated state to input field
-		document.getElementById('TotalExpensesYearly').value = this.state.calculated.TotalExpensesYearly.toFixed(2); // TODO: fix via passing updated state to input field
-		document.getElementById('TotalPercentageExpensesEstimate').value = this.state.calculated.TotalPercentageExpensesEstimate.toFixed(2); // TODO: fix via passing updated state to input field
+
+		try {
+			document.getElementById('TotalExpensesMonthly').value = this.state.calculated.TotalExpensesMonthly.toFixed(2); // TODO: fix via passing updated state to input field
+			document.getElementById('TotalExpensesYearly').value = this.state.calculated.TotalExpensesYearly.toFixed(2); // TODO: fix via passing updated state to input field
+			document.getElementById('TotalPercentageExpensesEstimate').value = this.state.calculated.TotalPercentageExpensesEstimate.toFixed(2); // TODO: fix via passing updated state to input field
+		} catch(err) {
+			console.error(err);
+		}
 	}
 
 	componentDidMount() {
@@ -68,12 +77,12 @@ class RentalPropertyEvaluator extends React.Component {
 
 	render() {
 		return(
-			<section class="columns is-multiline container column is-full">
-				<section className="grid px space-between flex-wrap columns container">
+			<section className="columns is-multiline container column width-full">
+				<section className="grid space-between flex-wrap columns container mr-0">
 					<FieldsSection PurchasePrice={this.state.changeable.PurchasePrice} sectionTitle={"Inputs"} handleFieldChange={this.handleFieldChange} curState={this.state} sectionId="RentalPropertyEvaluatorForm" fieldsArray={FieldDataObject.EvalFormFieldsArray} />
 					<FieldsSection PurchasePrice={this.state.changeable.PurchasePrice} sectionTitle={"Variable Expenses"} handleFieldChange={this.handleFieldChange} curState={this.state} sectionId="ExpenseSection" fieldsArray={FieldDataObject.ExpenseFormFieldsArray} />
 					<section className="FieldsSection side-padded width-one-fifth column py-0 is-4 resultsBox has-background-white">
-						<h5 className='left'>Results</h5>
+						<h3 className='left is-size-4 is-italic has-font-weight-bold title-border'>Results</h3>
 						{ FieldDataObject.ResultsBoxFields.map( (field,key) => <ResultsField key={key} isPassing={(field.threshold)?(this.state.calculated[field.id] > field.threshold)?"true":"false":null} result={(this.state.calculated[field.id]) ? this.state.calculated[field.id] : this.state[field.id]} toolTip={field.toolTip} fieldTitle={field.id} labelText={field.labelText} monthYear={field.monthYear} isPercentage={field.isPercentage} />) }
 					</section>
 				</section>
