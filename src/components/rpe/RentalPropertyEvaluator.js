@@ -78,7 +78,7 @@ class RentalPropertyEvaluator extends React.Component {
 	render() {
 		return(
 			<section className="columns is-multiline container column is-gapless width-full">
-				<section className="grid px space-between flex-wrap columns container">
+				<section className="grid space-between flex-wrap columns container">
 					<FieldsSection PurchasePrice={this.state.changeable.PurchasePrice} sectionTitle={"Inputs"} handleFieldChange={this.handleFieldChange} curState={this.state} sectionId="RentalPropertyEvaluatorForm" fieldsArray={FieldDataObject.EvalFormFieldsArray} />
 					<FieldsSection PurchasePrice={this.state.changeable.PurchasePrice} sectionTitle={"Variable Expenses"} handleFieldChange={this.handleFieldChange} curState={this.state} sectionId="ExpenseSection" fieldsArray={FieldDataObject.ExpenseFormFieldsArray} />
 					<section className="FieldsSection side-padded width-one-fifth column py-0 is-4 resultsBox has-background-white">

@@ -79,12 +79,11 @@ label { padding-right: 15px; }
 
 .number-symbol {
   font-size:  0.75rem;
-  top:  20px;
 }
 
 @media screen and (min-width: 768px) {
   .number-symbol {
-    top:  20px;
+    top:  7.5px;
   }
 }
 
@@ -133,4 +132,23 @@ span.calculatedValue {
   border-bottom: 1px solid black;
   margin-bottom: 10px;
   padding-bottom: 5px;
+}
+
+.collapsable h3:before {
+  content: "-";
+  padding-right:  7.5px;
+}
+
+.collapsable.collapsed h3:before {
+  content: "+";
+}
+
+.collapsable form .formItem {
+  height: 30px;
+  transition: height 1s;
+  overflow: hidden;
+}
+
+.collapsable.collapsed form .formItem {
+  height: 0;
 }
