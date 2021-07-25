@@ -144,7 +144,7 @@ span.calculatedValue {
 }
 
 .collapsable form .formItem {
-  height: 30px;
+  height: 35px;
   transition: height 1s;
   overflow: hidden;
 }
