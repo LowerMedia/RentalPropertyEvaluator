@@ -141,6 +141,7 @@ span.calculatedValue {
 
 .collapsable.collapsed h3:before {
   content: "+";
+  padding-right:  3.5px;
 }
 
 .collapsable form .formItem {
