@@ -72,7 +72,7 @@ class RentalPropertyEvaluator extends React.Component {
 
 	render() {
 		return(
-			<section class="columns is-multiline container column is-full">
+			<section className="columns is-multiline container column is-full">
 				<section className="grid px space-between flex-wrap columns container">
 					<FieldsSection PurchasePrice={this.state.changeable.PurchasePrice} sectionTitle={"Inputs"} handleFieldChange={this.handleFieldChange} curState={this.state} sectionId="RentalPropertyEvaluatorForm" fieldsArray={FieldDataObject.EvalFormFieldsArray} />
 					<FieldsSection PurchasePrice={this.state.changeable.PurchasePrice} sectionTitle={"Variable Expenses"} handleFieldChange={this.handleFieldChange} curState={this.state} sectionId="ExpenseSection" fieldsArray={FieldDataObject.ExpenseFormFieldsArray} />
