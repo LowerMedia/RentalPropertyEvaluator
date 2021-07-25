@@ -82,6 +82,18 @@ label { padding-right: 15px; }
   top:  20px;
 }
 
+@media screen and (min-width: 768px) {
+  .number-symbol {
+    top:  20px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .formItem {
+    padding-right:  1rem;
+  }
+}
+
 .number-symbol.dollar { left: -10px; }
 
 .number-symbol.percentage { right: -15px; }
@@ -115,4 +127,10 @@ span.calculatedValue {
   border: none;
   outline: none;
   cursor: default;
+}
+
+.title-border {
+  border-bottom: 1px solid black;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
 }

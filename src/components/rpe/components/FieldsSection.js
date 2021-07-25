@@ -4,8 +4,8 @@ import AdjustableInputField from './AdjustableInputField';
 export default class FieldsSection extends React.Component {
 	render() {
 		return(
-			<section id={this.props.sectionId} className='FieldsSection side-padded width-one-fifth column is-paddingless is-2 mb-6'>
-				<h3 className="left is-size-4 is-italic has-font-weight-bold pb-4">{this.props.sectionTitle}</h3>
+			<section id={this.props.sectionId} className='FieldsSection side-padded width-one-fifth column is-paddingless is-3 mb-6'>
+				<h3 className="left is-size-4 is-italic has-font-weight-bold title-border">{this.props.sectionTitle}</h3>
 				<form>
 					{this.props.fieldsArray.map( (field, key) => <AdjustableInputField
 						handleFieldChange={this.props.handleFieldChange}
