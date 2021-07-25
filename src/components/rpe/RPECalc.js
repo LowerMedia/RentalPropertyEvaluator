@@ -1,12 +1,24 @@
 const RPECalc = {
 
-	// TODO: add calcs and results fields for IRR (internal rate of return), 50% rule, and 1% rule
+	// TODO: add calcs and results fields for IRR (internal rate of return), PITI
 	// TODO: fix CoCROI to account for taxes (should be cashflow BEFORE taxes are accounted for)
 	// TODO: alpha sort or break down income/expense/other and then alpha sort
 
 	EBDITA: (state) => {
 		return 99;
 		// totalIncomeYearly + totalTaxesPaidYearly + totalMortgageInterestPaidYearly + totalDeprectiationCostsYearly + totalAmoritizationCostsYearly
+	},
+
+	GrossRentMultiplier: (state) => {
+		return ( state.changeable.PurchasePrice / state.calculated.TotalMonthlyIncome );
+	},
+
+	OnePercentRule: (state) => {
+		return ( ( state.calculated.TotalMonthlyIncome / state.changeable.PurchasePrice ) * 100 );
+	},
+
+	FiftyPercentRule: (state) => {
+		return ( state.calculated.TotalMonthlyIncome / state.calculated.TotalMonthlyExpenses * 10 );
 	},
 
 	CashFlow: (state) => {

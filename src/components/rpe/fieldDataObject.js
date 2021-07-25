@@ -40,6 +40,9 @@ const FieldDataObject = {
 		TotalYearlyIncome: 0,
 		YearlyMortgagePayment: 0,
 		EBDITA: 0,
+		GrossRentMultiplier: 0,
+		OnePercentRule: 0,
+		FiftyPercentRule: 0,
 	},
 
 	ResultsBoxFields: [
@@ -47,6 +50,9 @@ const FieldDataObject = {
 		{id:"CoCROI",labelText:"CoCROI",isPercentage:"true",threshold:10,toolTip:"( ( ( Gross Rent ) + ( Other Income) ) - ( Vacancy + Operating Expenses + Annual Mortgage Payments ) )"},
 		{id:"Cap",labelText:"Cap",isPercentage:"true",threshold:7.5,toolTip:"E = mc^2"},
 		{id:"DebtServiceCoverageRatio",labelText:"DSCR",threshold:1.25,toolTip:"debt to income ratio - cash flow available for debt service / total debt service"},
+		{id:"GrossRentMultiplier",labelText:"GRM",threshold: 1,toolTip:"Purchase Price / Monthly Rent "},
+		{id:"OnePercentRule",labelText:"1% Rule", isPercentage:"true",threshold: 1,toolTip:"Monthly Income / Purchase Price"},
+		{id:"FiftyPercentRule",labelText:"50% Rule", isPercentage:"true",threshold: 50,toolTip:"Monthly Income / Monthly Expenses"},
 		{id:"TotalCashInvested",labelText:"Cash Inv.",toolTip:"E = mc^2"},
 		{id:"TotalLoanAmount",labelText:"Loan Amt",toolTip:"E = mc^2"},
 		{id:"NetOperatingIncome",labelText:"NOI", monthYear:true,toolTip:"E = mc^2"},
