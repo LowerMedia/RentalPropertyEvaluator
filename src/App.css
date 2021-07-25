@@ -134,22 +134,24 @@ span.calculatedValue {
   padding-bottom: 5px;
 }
 
-.collapsable h3:before {
-  content: "-";
-  padding-right:  7.5px;
-}
+@media screen and (max-width: 767px) {
+  .collapsable h3:before {
+    content: "-";
+    padding-right:  7.5px;
+  }
 
-.collapsable.collapsed h3:before {
-  content: "+";
-  padding-right:  3.5px;
-}
+  .collapsable.collapsed h3:before {
+    content: "+";
+    padding-right:  3.5px;
+  }
 
-.collapsable form .formItem {
-  height: 35px;
-  transition: height 1s;
-  overflow: hidden;
-}
+  .collapsable form .formItem {
+    height: 37.5px;
+    transition: height 1s;
+    overflow: hidden;
+  }
 
-.collapsable.collapsed form .formItem {
-  height: 0;
+  .collapsable.collapsed form .formItem {
+    height: 0;
+  }
 }
