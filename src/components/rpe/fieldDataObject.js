@@ -42,7 +42,8 @@ const FieldDataObject = {
 		EBDITA: 0,
 		GrossRentMultiplier: 0,
 		OnePercentRule: 0,
-		FiftyPercentRule: 0,
+		TotalInterestPaid: 0,
+		LoanTermMonths: 0,
 	},
 
 	ResultsBoxFields: [
@@ -52,13 +53,13 @@ const FieldDataObject = {
 		{id:"DebtServiceCoverageRatio",labelText:"DSCR",threshold:1.25,toolTip:"debt to income ratio - cash flow available for debt service / total debt service"},
 		{id:"GrossRentMultiplier",labelText:"GRM",threshold: 1,toolTip:"Purchase Price / Monthly Rent "},
 		{id:"OnePercentRule",labelText:"1% Rule", isPercentage:"true",threshold: 1,toolTip:"Monthly Income / Purchase Price"},
-		{id:"FiftyPercentRule",labelText:"50% Rule", isPercentage:"true",threshold: 50,toolTip:"Monthly Income / Monthly Expenses"},
 		{id:"TotalCashInvested",labelText:"Cash Inv.",toolTip:"E = mc^2"},
 		{id:"TotalLoanAmount",labelText:"Loan Amt",toolTip:"E = mc^2"},
 		{id:"NetOperatingIncome",labelText:"NOI", monthYear:true,toolTip:"E = mc^2"},
 		{id:"CashFlow",labelText:"CashFlow", monthYear:true,toolTip:"E = mc^2"},
 		{id:"TotalMonthlyIncome",labelText:"Income", monthYear:true,toolTip:"E = mc^2"},
 		{id:"MortgagePayment",labelText:"Mortgage", monthYear:true,toolTip:"E = mc^2"},
+		{id:"TotalInterestPaid",labelText:"Ttl Intrst Paid", monthYear:true,toolTip:"Principal * Rate * Time"},
 	],
 
 	EvalFormFieldsArray: [
@@ -66,7 +67,7 @@ const FieldDataObject = {
 		{id:"PurchasePrice",labelText:"Purchase Price: ",numType:"currency"},
 		{id:"PercentDown",labelText:"Percent Down: ",numType:"percentage"},
 		{id:"InterestRate",labelText:"Interest Rate: ",numType:"percentage"},
-		{id:"LoanTerm",labelText:"Loan Term: ",numType:"currency"},
+		{id:"LoanTerm",labelText:"Loan Term (Yrs): ",numType:"currency"},
 		{id:"ClosingCosts",labelText:"Closing Costs: ",numType:"currency"},
 	],
 

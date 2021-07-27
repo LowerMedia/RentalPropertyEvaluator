@@ -17,8 +17,12 @@ const RPECalc = {
 		return ( ( state.calculated.TotalMonthlyIncome / state.changeable.PurchasePrice ) * 100 );
 	},
 
-	FiftyPercentRule: (state) => {
-		return ( state.calculated.TotalMonthlyIncome / state.calculated.TotalMonthlyExpenses * 10 );
+	TotalInterestPaid: (state) => {
+		return state.changeable.PurchasePrice * ( state.changeable.InterestRate * 0.01 ) * state.changeable.LoanTerm;
+	},
+
+	LoanTermMonths: (state) => {
+		return state.changeable.LoanTerm * 12;
 	},
 
 	CashFlow: (state) => {
@@ -78,7 +82,7 @@ const RPECalc = {
 	},
 
 	MortgagePayment: (state) => {
-		return ( state.calculated.TotalLoanAmount * ( ( state.changeable.InterestRate * 0.01 ) / 12 ) * Math.pow( ( 1 + ( ( state.changeable.InterestRate * 0.01 ) / 12 ) ), ( state.changeable.LoanTerm * 12 ) ) ) / ( Math.pow( ( 1 + ( ( state.changeable.InterestRate * 0.01 ) / 12 )), ( state.changeable.LoanTerm * 12 )) - 1 );
+		return ( state.calculated.TotalLoanAmount * ( ( state.changeable.InterestRate * 0.01 ) / 12 ) * Math.pow( ( 1 + ( ( state.changeable.InterestRate * 0.01 ) / 12 ) ), ( state.calculated.LoanTermMonths ) ) ) / ( Math.pow( ( 1 + ( ( state.changeable.InterestRate * 0.01 ) / 12 )), ( state.changeable.LoanTerm * 12 )) - 1 );
 	},
 
 	YearlyMortgagePayment: (state) => {
