@@ -37,6 +37,7 @@ const FieldDataObject = {
 		TotalExpensesMonthly:0,
 		TotalExpensesYearly:0,
 		TotalPercentageExpensesEstimate: 0,
+		TotalDollarExpensesEstimate: 0,
 		TotalYearlyIncome: 0,
 		YearlyMortgagePayment: 0,
 		EBDITA: 0,
@@ -67,7 +68,7 @@ const FieldDataObject = {
 		{id:"PurchasePrice",labelText:"Purchase Price: ",numType:"currency"},
 		{id:"PercentDown",labelText:"Percent Down: ",numType:"percentage"},
 		{id:"InterestRate",labelText:"Interest Rate: ",numType:"percentage"},
-		{id:"LoanTerm",labelText:"Loan Term (Yrs): ",numType:"currency"},
+		{id:"LoanTerm",labelText:"Loan Term: ",numType:"years"},
 		{id:"ClosingCosts",labelText:"Closing Costs: ",numType:"currency"},
 	],
 
