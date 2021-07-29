@@ -21,7 +21,7 @@ class RentalPropertyEvaluator extends React.Component {
 		await this.calcAllDynamically();
 	}
 
-	async calcAllDynamically(count = 1) {
+	async calcAllDynamically(count = 2) {
 		while ( count ) {
 			await this.setState( ( prevState ) => {
 				const newState = { ...prevState };
@@ -48,7 +48,8 @@ class RentalPropertyEvaluator extends React.Component {
 	}
 
 	componentDidMount() {
-		this.calcAllDynamically(2);
+		this.calcAllDynamically(3);
+		console.log('cur state ', this.state);
 	}
 
 	saveStateToLocalStorage() {
