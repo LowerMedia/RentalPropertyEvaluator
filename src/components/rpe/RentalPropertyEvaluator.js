@@ -13,6 +13,7 @@ class RentalPropertyEvaluator extends React.Component {
 	}
 
 	async handleFieldChange(inputChanged, newValue) {
+		console.log('field has changed ', inputChanged, newValue)
 		await this.setState( ( prevState ) => {
 			const newState = { ...prevState };
 			newState.changeable[inputChanged] = parseInt( newValue );
@@ -67,7 +68,11 @@ class RentalPropertyEvaluator extends React.Component {
 		await this.setState({changeable: FieldDataObject.changeable, calculated:FieldDataObject.calculated});
 		await this.calcAllDynamically(2);
 		for (var key of Object.keys(this.state.changeable)) {
-			document.getElementById(key).value = this.state.changeable[key]; // TODO: fix via passing updated state to input field
+			try {
+				document.getElementById(key).value = this.state.changeable[key]; // TODO: fix via passing updated state to input field
+			} catch(err) { // TODO: fix error when checkbox is clicked to properly set value
+				console.error(err);
+			}
 		}
 	}
 
@@ -80,8 +85,8 @@ class RentalPropertyEvaluator extends React.Component {
 		return(
 			<section className="columns is-multiline container column width-full">
 				<section className="grid space-between flex-wrap columns container mr-0">
-					<FieldsSection PurchasePrice={this.state.changeable.PurchasePrice} sectionTitle={"Income & Mortgage"} handleFieldChange={this.handleFieldChange} curState={this.state} sectionId="RentalPropertyEvaluatorForm" fieldsArray={FieldDataObject.EvalFormFieldsArray} />
-					<FieldsSection PurchasePrice={this.state.changeable.PurchasePrice} sectionTitle={"Expenses"} handleFieldChange={this.handleFieldChange} curState={this.state} sectionId="ExpenseSection" fieldsArray={FieldDataObject.ExpenseFormFieldsArray} />
+					<FieldsSection onCheckboxToggle={this.onCheckboxToggle} PurchasePrice={this.state.changeable.PurchasePrice} sectionTitle={"Income & Mortgage"} handleFieldChange={this.handleFieldChange} curState={this.state} sectionId="RentalPropertyEvaluatorForm" fieldsArray={FieldDataObject.EvalFormFieldsArray} />
+					<FieldsSection onCheckboxToggle={this.onCheckboxToggle} PurchasePrice={this.state.changeable.PurchasePrice} sectionTitle={"Expenses"} handleFieldChange={this.handleFieldChange} curState={this.state} sectionId="ExpenseSection" fieldsArray={FieldDataObject.ExpenseFormFieldsArray} />
 					<section className="FieldsSection side-padded width-one-fifth column py-0 is-5 resultsBox has-background-white">
 						<h3 className='left is-size-4 is-italic has-font-weight-bold title-border'>Results</h3>
 						{ FieldDataObject.ResultsBoxFields.map( (field,key) => <ResultsField key={key} isPassing={(field.threshold)?(this.state.calculated[field.id] > field.threshold)?"true":"false":null} result={(this.state.calculated[field.id]) ? this.state.calculated[field.id] : this.state[field.id]} toolTip={field.toolTip} fieldTitle={field.id} labelText={field.labelText} monthYear={field.monthYear} isPercentage={field.isPercentage} />) }

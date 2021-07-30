@@ -1,20 +1,22 @@
 const FieldDataObject = {
 	
 	changeable: {
-		CapEx:5,
-		ClosingCosts: 1000,
+		CapEx:0,
+		ClosingCosts: 0,
 		HOA: 0,
 		Insurance:800,
-		InterestRate: 5,
+		InterestRate: 4.5,
 		LoanTerm: 30,
-		MaintRepExpense:2.5,
-		MiscExpense:2.5,
+		MaintRepExpense:0,
+		MiscExpense:0,
 		MonthlyRent: 1000,
 		PercentDown:20,
-		PropMngtExpense:5,
-		PurchasePrice: 99000,
-		Taxes: 800,
+		PropMngtExpense:0,
+		PurchasePrice: 100000,
+		Taxes: 1500,
 		VacancyExpense:5,
+		OtherExpense:1200,
+		IncludeClosingCostsInMortgage: true,
 	},
 
 	calculated: {
@@ -43,6 +45,8 @@ const FieldDataObject = {
 		EBDITA: 0,
 		GrossRentMultiplier: 0,
 		OnePercentRule: 0,
+		TotalInterestPaidMonthly: 0,
+		TotalInterestPaidYearly: 0,
 		TotalInterestPaid: 0,
 		LoanTermMonths: 0,
 	},
@@ -69,7 +73,8 @@ const FieldDataObject = {
 		{id:"PercentDown",labelText:"Percent Down: ",numType:"percentage"},
 		{id:"InterestRate",labelText:"Interest Rate: ",numType:"percentage"},
 		{id:"LoanTerm",labelText:"Loan Term: ",numType:"years"},
-		{id:"ClosingCosts",labelText:"Closing Costs: ",numType:"currency"},
+		{id:"ClosingCosts",labelText:"Closing Costs: ",numType:"currency",toggleable:true,},
+		{id:"IncludeClosingCostsInMortgage",labelText:"Include Closing Costs In Mortgage? ",numType:"toggle"}
 	],
 
 	ExpenseFormFieldsArray: [
@@ -82,6 +87,7 @@ const FieldDataObject = {
 		{id:"HOA",labelText:"HOA: ",numType:"currency"},
 		{id:"Taxes",labelText:"Tax Estimate: ",numType:"currency"},
 		{id:"Insurance",labelText:"Insurance Estimate: ",numType:"currency"},
+		{id:"OtherExpense",labelText:"Other: ",numType:"currency"},
 		{id:"TotalExpensesMonthly",labelText:"Total Monthly",numType:"currency",fieldType:"variableExpenseTotal"},
 		{id:"TotalExpensesYearly",labelText:"Total Yearly",numType:"currency",fieldType:"variableExpenseTotal"},
 	],
