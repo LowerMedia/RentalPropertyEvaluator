@@ -4,6 +4,7 @@ const FieldDataObject = {
 		CapEx:0,
 		ClosingCosts: 3000,
 		HOA: 0,
+		IncludeClosingCostsInMortgage: false,
 		Insurance:800,
 		InterestRate: 4.5,
 		LoanTerm: 30,
@@ -16,7 +17,6 @@ const FieldDataObject = {
 		Taxes: 1500,
 		VacancyExpense:5,
 		OtherExpense:1200,
-		IncludeClosingCostsInMortgage: true,
 	},
 
 	calculated: {
@@ -73,8 +73,8 @@ const FieldDataObject = {
 		{id:"PercentDown",labelText:"Percent Down: ",numType:"percentage"},
 		{id:"InterestRate",labelText:"Interest Rate: ",numType:"percentage"},
 		{id:"LoanTerm",labelText:"Loan Term: ",numType:"years"},
-		{id:"ClosingCosts",labelText:"Closing Costs: ",numType:"currency",toggleable:true,},
-		{id:"IncludeClosingCostsInMortgage",labelText:"Include Closing Costs In Mortgage? ",numType:"toggle"}
+		{id:"ClosingCosts",labelText:"Closing Costs: ",numType:"currency"},
+		{id:"IncludeClosingCostsInMortgage",labelText:"Include Closing Costs In Mortgage? ",inputType:"checkbox"}
 	],
 
 	ExpenseFormFieldsArray: [

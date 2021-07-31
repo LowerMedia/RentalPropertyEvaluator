@@ -4,7 +4,7 @@ export default class AdjustableInputField extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			value: (this.props.curState.changeable[this.props.id]) ? this.props.curState.changeable[this.props.id] : ( this.props.curState.calculated[this.props.id] ) ? this.props.curState.calculated[this.props.id] : "0"
+			value: ( this.props.inputType === "checkbox" ) ? this.props.curState.changeable[this.props.id] : (this.props.curState.changeable[this.props.id]) ? this.props.curState.changeable[this.props.id] : ( this.props.curState.calculated[this.props.id] ) ? this.props.curState.calculated[this.props.id] : "0"
 		}
 		this.onCheckboxToggle = this.onCheckboxToggle.bind(this);
 		this.childHandleFieldChange = this.childHandleFieldChange.bind(this);
@@ -28,9 +28,9 @@ export default class AdjustableInputField extends React.Component {
 					{ this.props.fieldType === 'variableExpense' ? <span className="calculatedValue">(${this.props.curState.calculated[this.props.id].toLocaleString()})</span> : null }
 					{ this.props.numType === "currency" ? <span className="position-absolute number-symbol dollar">$</span> : null }
 					
-					{ this.props.numType === "toggle" ? <span className='checkbox-wrap is-size-7 is-block'><input id="IncludeClosingCostsInMortgage" checked={this.state.value} type="checkbox" onChange={(e)=>this.onCheckboxToggle(e,this.props)} /></span> : null }
+					{ this.props.inputType === "checkbox" ? <span className='checkbox-wrap is-size-7 is-block'><input id="IncludeClosingCostsInMortgage" checked={this.state.value} value={this.state.value} type={this.props.inputType} onChange={(e)=>this.onCheckboxToggle(e,this.props)} /></span> : null }
 				
-					{this.props.numType !== "toggle" ? <input className={classes} value={this.state.value} onChange={(e) => this.childHandleFieldChange(this.props.id,e.target.value)} type="text" id={this.props.id} data-testid={this.props.id} name={this.props.id} aria-labelledby={`${this.props.id}-ariaLabel`} /> : null }
+					{this.props.inputType !== "checkbox" ? <input className={classes} value={this.state.value} onChange={(e) => this.childHandleFieldChange(this.props.id,e.target.value)} type="text" id={this.props.id} data-testid={this.props.id} name={this.props.id} aria-labelledby={`${this.props.id}-ariaLabel`} /> : null }
 					
 					{ this.props.numType === "percentage" ? <span className="position-absolute number-symbol percentage">%</span> : null }
 					{ this.props.numType === "years" ? <span className="position-absolute number-symbol years">yrs</span> : null }

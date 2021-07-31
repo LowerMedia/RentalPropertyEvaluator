@@ -22,7 +22,7 @@ export default class FieldsSection extends React.Component {
 						curState={this.props.curState}
 						numType={field.numType}
 						fieldType={field.fieldType}
-						toggleable={field.toggleable}
+						inputType={field.inputType}
 					/>)}
 				</form>
 			</section>

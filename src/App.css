@@ -71,17 +71,10 @@ input {
 
 label {
   padding-right: 15px;
-  /*background: lime;*/
   align-self: center;
 }
 
-/*.formItem {
-  background: pink;
-  border-top: 1px solid purple;
-  border-bottom: 1px solid red;
-}*/
-
-.formItemFieldWrap { align-items: flex-end; }
+.formItemFieldWrap { align-items: center; }
 
 .side-padded {
   padding-left:  0.75rem;
