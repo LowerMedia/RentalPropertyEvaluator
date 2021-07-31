@@ -83,8 +83,8 @@ class RentalPropertyEvaluator extends React.Component {
 
 	render() {
 		return(
-			<section className="columns is-multiline container column width-full">
-				<section className="grid space-between flex-wrap columns container mr-0">
+			<section className="columns is-multiline container column width-full is-marginless is-paddingless">
+				<section className="grid space-between flex-wrap columns container mr-0 is-marginless">
 					<FieldsSection onCheckboxToggle={this.onCheckboxToggle} PurchasePrice={this.state.changeable.PurchasePrice} sectionTitle={"Income & Mortgage"} handleFieldChange={this.handleFieldChange} curState={this.state} sectionId="RentalPropertyEvaluatorForm" fieldsArray={FieldDataObject.EvalFormFieldsArray} />
 					<FieldsSection onCheckboxToggle={this.onCheckboxToggle} PurchasePrice={this.state.changeable.PurchasePrice} sectionTitle={"Expenses"} handleFieldChange={this.handleFieldChange} curState={this.state} sectionId="ExpenseSection" fieldsArray={FieldDataObject.ExpenseFormFieldsArray} />
 					<section className="FieldsSection side-padded width-one-fifth column py-0 is-5 resultsBox has-background-white">
