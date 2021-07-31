@@ -104,11 +104,11 @@ const RPECalc = {
 	},
 
 	DebtServiceCoverageRatio: (state) => { // debt to income ratio - cash flow available for debt service / total debt service
-		return state.calculated.CashFlowYearly / state.calculated.YearlyMortgagePayment;
+		return ( state.calculated.NetOperatingIncome * 12 ) / state.calculated.YearlyMortgagePayment;
 	},
 
 	Cap: (state) => { // capitalization rate
-		return ( state.calculated.CashFlowYearly / state.changeable.PurchasePrice ) * 100;
+		return ( ( state.calculated.NetOperatingIncome * 12 ) / state.changeable.PurchasePrice ) * 100;
 	},
 
 	CoCROI: (state) => { // cash on cash return on investment
@@ -125,8 +125,7 @@ const RPECalc = {
 	},
 
 	TotalCashInvested: (state) => {
-		const closingCosts = state.changeable.IncludeClosingCostsInMortgage ? state.changeable.ClosingCosts : 0;
-		return ((state.changeable.PurchasePrice + closingCosts) * ( 0.01 * state.changeable.PercentDown ) );
+		return state.changeable.ClosingCosts + ((state.changeable.PurchasePrice ) * ( 0.01 * state.changeable.PercentDown ) );
 	}
 };
 export default RPECalc;
