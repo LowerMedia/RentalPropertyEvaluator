@@ -2,7 +2,7 @@ const FieldDataObject = {
 	
 	changeable: {
 		CapEx:0,
-		ClosingCosts: 0,
+		ClosingCosts: 3000,
 		HOA: 0,
 		Insurance:800,
 		InterestRate: 4.5,
@@ -52,12 +52,12 @@ const FieldDataObject = {
 	},
 
 	ResultsBoxFields: [
-		{id:"EBDITA",labelText:"EBDITA",toolTip:"E = mc^2"},
-		{id:"CoCROI",labelText:"CoCROI",isPercentage:"true",threshold:10,toolTip:"( ( ( Gross Rent ) + ( Other Income) ) - ( Vacancy + Operating Expenses + Annual Mortgage Payments ) )"},
+		{id:"CoCROI",labelText:"CoCROI (Year 1)",isPercentage:"true",threshold:10,toolTip:"( ( ( Gross Rent ) + ( Other Income) ) - ( Vacancy + Operating Expenses + Annual Mortgage Payments ) )"},
 		{id:"Cap",labelText:"Cap",isPercentage:"true",threshold:7.5,toolTip:"E = mc^2"},
 		{id:"DebtServiceCoverageRatio",labelText:"DSCR",threshold:1.25,toolTip:"debt to income ratio - cash flow available for debt service / total debt service"},
 		{id:"GrossRentMultiplier",labelText:"GRM",threshold: 1,toolTip:"Purchase Price / Monthly Rent "},
-		{id:"OnePercentRule",labelText:"1% Rule", isPercentage:"true",threshold: 1,toolTip:"Monthly Income / Purchase Price"},
+		{id:"OnePercentRule",labelText:"1% Rule", isPercentage:"true",threshold: .99,toolTip:"Monthly Income / Purchase Price"},
+		{id:"EBDITA",labelText:"EBDITA",toolTip:"E = mc^2"},
 		{id:"TotalCashInvested",labelText:"Cash Inv.",toolTip:"E = mc^2"},
 		{id:"TotalLoanAmount",labelText:"Loan Amt",toolTip:"E = mc^2"},
 		{id:"NetOperatingIncome",labelText:"NOI", monthYear:true,toolTip:"E = mc^2"},
