@@ -21,9 +21,9 @@ export default class AdjustableInputField extends React.Component {
 	render() {
 		const classes = this.props.fieldType === "variableExpenseTotal" ? "disabled" : "adjustable";
 		return(
-			<div className='formItem flex space-between position-relative'>
+			<div className='formItem flex space-between position-relative mb-3'>
 				<label className="is-size-6" htmlFor={this.props.id} id={`${this.props.id}-ariaLabel`} >{this.props.labelText}</label>
-				<div className="position-relative">
+				<div className="formItemFieldWrap is-flex position-relative">
 					{ this.props.id === 'TotalPercentageExpensesEstimate' && this.props.curState.calculated.TotalDollarExpensesEstimate ? <span className="calculatedValue">(${this.props.curState.calculated.TotalDollarExpensesEstimate.toLocaleString()})</span> : null }
 					{ this.props.fieldType === 'variableExpense' ? <span className="calculatedValue">(${this.props.curState.calculated[this.props.id].toLocaleString()})</span> : null }
 					{ this.props.numType === "currency" ? <span className="position-absolute number-symbol dollar">$</span> : null }

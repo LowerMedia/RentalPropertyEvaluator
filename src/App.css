@@ -69,7 +69,19 @@ input {
 .is-size-half { font-size: 0.5rem; }
 .is-size-1 { font-size: 1rem; }
 
-label { padding-right: 15px; }
+label {
+  padding-right: 15px;
+  /*background: lime;*/
+  align-self: center;
+}
+
+/*.formItem {
+  background: pink;
+  border-top: 1px solid purple;
+  border-bottom: 1px solid red;
+}*/
+
+.formItemFieldWrap { align-items: flex-end; }
 
 .side-padded {
   padding-left:  0.75rem;
@@ -80,12 +92,6 @@ label { padding-right: 15px; }
   font-size:  0.85rem;
 }
 
-@media screen and (min-width: 768px) {
-  .number-symbol {
-    margin-top: 17.5px;
-  }
-}
-
 @media screen and (max-width: 767px) {
   .formItem {
     padding-right:  1rem;
@@ -94,9 +100,9 @@ label { padding-right: 15px; }
 
 .number-symbol.dollar { left: -12.5px; }
 
-.number-symbol.percentage { margin-left: 2.5px; }
+.number-symbol.percentage { right: -15px; }
 
-.number-symbol.years { margin-left: 2.5px; }
+.number-symbol.years { right: -22.5px; }
 
 .position-relative { position: relative; }
 
