@@ -60,6 +60,9 @@ const FieldDataObject = {
 		{id:"EBDITA",labelText:"EBDITA",toolTip:"E = mc^2"},
 		{id:"TotalCashInvested",labelText:"Cash Inv.",toolTip:"E = mc^2"},
 		{id:"TotalLoanAmount",labelText:"Loan Amt",toolTip:"E = mc^2"},
+	],
+
+	ResultsBoxFieldsMonthlyYearly: [
 		{id:"NetOperatingIncome",labelText:"NOI", monthYear:true,toolTip:"E = mc^2"},
 		{id:"CashFlow",labelText:"CashFlow", monthYear:true,toolTip:"E = mc^2"},
 		{id:"TotalMonthlyIncome",labelText:"Income", monthYear:true,toolTip:"E = mc^2"},

@@ -90,6 +90,8 @@ class RentalPropertyEvaluator extends React.Component {
 					<section className="FieldsSection side-padded width-one-fifth column py-0 is-5 resultsBox has-background-white">
 						<h3 className='left is-size-4 is-italic has-font-weight-bold title-border'>Results</h3>
 						{ FieldDataObject.ResultsBoxFields.map( (field,key) => <ResultsField key={key} isPassing={(field.threshold)?(this.state.calculated[field.id] > field.threshold)?"true":"false":null} result={(this.state.calculated[field.id]) ? this.state.calculated[field.id] : this.state[field.id]} toolTip={field.toolTip} fieldTitle={field.id} labelText={field.labelText} monthYear={field.monthYear} isPercentage={field.isPercentage} />) }
+						<h5 className='right is-size-4 is-italic has-font-weight-bold title-border is-size-6'>Monthly &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Yearly</h5>
+						{ FieldDataObject.ResultsBoxFieldsMonthlyYearly.map( (field,key) => <ResultsField key={key} isPassing={(field.threshold)?(this.state.calculated[field.id] > field.threshold)?"true":"false":null} result={(this.state.calculated[field.id]) ? this.state.calculated[field.id] : this.state[field.id]} toolTip={field.toolTip} fieldTitle={field.id} labelText={field.labelText} monthYear={field.monthYear} isPercentage={field.isPercentage} />) }
 					</section>
 				</section>
 				<section className="grid space-between flex-wrap column is-full">
