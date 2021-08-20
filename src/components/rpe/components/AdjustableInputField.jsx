@@ -6,8 +6,14 @@ export default class AdjustableInputField extends React.Component {
 		this.state = {
 			value: ( this.props.inputType === "checkbox" ) ? this.props.curState.changeable[this.props.id] : (this.props.curState.changeable[this.props.id]) ? this.props.curState.changeable[this.props.id] : ( this.props.curState.calculated[this.props.id] ) ? this.props.curState.calculated[this.props.id] : "0"
 		}
+		this.checkKeyPress = this.checkKeyPress.bind(this);
 		this.onCheckboxToggle = this.onCheckboxToggle.bind(this);
 		this.childHandleFieldChange = this.childHandleFieldChange.bind(this);
+	}
+	checkKeyPress(event) { // this prevents any non numbers from being entered
+        if (!/[0-9]/.test(event.key)) {
+          event.preventDefault();
+        }
 	}
 	async childHandleFieldChange(props, targetValue) {
 		this.setState({value:targetValue});
@@ -30,7 +36,7 @@ export default class AdjustableInputField extends React.Component {
 					
 					{ this.props.inputType === "checkbox" ? <span className='checkbox-wrap is-size-7 is-block'><input id="IncludeClosingCostsInMortgage" checked={this.state.value} value={this.state.value} type={this.props.inputType} onChange={(e)=>this.onCheckboxToggle(e,this.props)} /></span> : null }
 				
-					{this.props.inputType !== "checkbox" ? <input className={classes} value={this.state.value} onChange={(e) => this.childHandleFieldChange(this.props.id,e.target.value)} type="text" id={this.props.id} data-testid={this.props.id} name={this.props.id} aria-labelledby={`${this.props.id}-ariaLabel`} /> : null }
+					{this.props.inputType !== "checkbox" ? <input className={classes} value={this.state.value} onKeyPress={(e) => this.checkKeyPress(e)} onChange={(e) => this.childHandleFieldChange(this.props.id,e.target.value,e)} type="number" id={this.props.id} data-testid={this.props.id} name={this.props.id} aria-labelledby={`${this.props.id}-ariaLabel`} /> : null }
 					
 					{ this.props.numType === "percentage" ? <span className="position-absolute number-symbol percentage">%</span> : null }
 					{ this.props.numType === "years" ? <span className="position-absolute number-symbol years">yrs</span> : null }
