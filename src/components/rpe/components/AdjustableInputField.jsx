@@ -30,8 +30,8 @@ export default class AdjustableInputField extends React.Component {
 			<div className='formItem flex space-between position-relative mb-2'>
 				<label className="is-size-6" htmlFor={this.props.id} id={`${this.props.id}-ariaLabel`} >{this.props.labelText}</label>
 				<div className="formItemFieldWrap is-flex position-relative">
-					{ this.props.id === 'TotalPercentageExpensesEstimate' && this.props.curState.calculated.TotalDollarExpensesEstimate ? <span className="calculatedValue">(${this.props.curState.calculated.TotalDollarExpensesEstimate.toLocaleString()})</span> : null }
-					{ this.props.fieldType === 'variableExpense' ? <span className="calculatedValue">(${this.props.curState.calculated[this.props.id].toLocaleString()})</span> : null }
+					{ this.props.id === 'TotalPercentageExpensesEstimate' && this.props.curState.calculated.TotalDollarExpensesEstimate ? <span className="calculatedValue">(${this.props.curState.calculated.TotalDollarExpensesEstimate})</span> : null }
+					{ this.props.fieldType === 'variableExpense' ? <span className="calculatedValue">(${this.props.curState.calculated[this.props.id]})</span> : null }
 					{ this.props.numType === "currency" ? <span className="position-absolute number-symbol dollar">$</span> : null }
 					
 					{ this.props.inputType === "checkbox" ? <span className='checkbox-wrap is-size-7 is-block'><input id="IncludeClosingCostsInMortgage" checked={this.state.value} value={this.state.value} type={this.props.inputType} onChange={(e)=>this.onCheckboxToggle(e,this.props)} /></span> : null }
