@@ -74,6 +74,7 @@ class RentalPropertyEvaluator extends React.Component {
 				console.error(err);
 			}
 		}
+		document.getElementById('IncludeClosingCostsInMortgage').checked = false; // reset the checkbox manually
 	}
 
 	resetLocalStorage() {
