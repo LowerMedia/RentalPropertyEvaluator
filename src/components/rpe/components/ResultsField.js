@@ -6,15 +6,21 @@ function formatCurrency(num, isNotCurrency = false, isYearly = false) {
 	}
 	num = isYearly ? num * 12 : num;
 	let numArray = (""+num).split('.')[0].split('').reverse();
-	for (var i = numArray.length; i > 0; i--) {
+	for (var i = numArray.length; i > 0; i--) { // this add commas where necessary
 		var temp = i + 1;
 		if ( ! ( ( temp % 3 ) - 1) % 3 ) {
-			if (i != numArray.length) {
+			if (i !== numArray.length) {
 				numArray.splice(i,0,',');
 			}
 		}
 	}
-	return numArray.reverse().join('') + "." + ( (""+num).split('.')[1] ? (""+num).split('.')[1][0] + "" + (""+num).split('.')[1][1] : "00" );
+
+	let wholeNumber = numArray.reverse().join(''),
+	decimalSplit = (""+num).split('.'),
+	firstDecimal = ( decimalSplit[1] ? decimalSplit[1][0] : "0" ),
+	secondDecimal = ( decimalSplit[1] ? ( decimalSplit[1][1] ? decimalSplit[1][1] : '' ) : "0" ); // extra logic to ensure not to return undefined
+
+	return `${wholeNumber}.${firstDecimal}${secondDecimal}`;
 }
 
 export default class ResultsField extends React.Component {
