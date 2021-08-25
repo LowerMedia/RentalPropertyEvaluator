@@ -6,14 +6,14 @@ const Navbar = () => {
 		<nav className='navbar container' role='navigation' aria-label='main navigation'>
 		  <div className='navbar-brand'>
 		    <a className='navbar-item is-size-2' href='/'>&#127960;</a>
+			<div className='navbar-item is-hidden-tablet'>
+				<h1 className='has-text-black'>Rental Property Evaluator</h1>
+			</div>
 		    <a href='/' role='button' className='navbar-burger' aria-label='menu' aria-expanded='false' data-target='rpeNavbarMenu'>
 		      <span aria-hidden='true'></span>
 		      <span aria-hidden='true'></span>
 		      <span aria-hidden='true'></span>
 		    </a>
-	      <div className='navbar-item is-hidden-tablet'>
-	   		<h1 className='has-text-black'>Rental Property Evaluator</h1>
-	      </div>
 		  </div>
 		  <div id='rpeNavbarMenu' className='navbar-menu'>
 		    <div className='navbar-start'>
