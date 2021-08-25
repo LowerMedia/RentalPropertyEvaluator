@@ -2494,7 +2494,7 @@ body.has-navbar-fixed-bottom {
   overflow-y: hidden; }
 
 .navbar-burger {
-  color: #757763;
+  color: transparent;
   cursor: pointer;
   display: block;
   height: 3.25rem;
@@ -2532,7 +2532,7 @@ body.has-navbar-fixed-bottom {
 
 .navbar-item,
 .navbar-link {
-  color: #757763;
+  color: transparent;
   display: block;
   line-height: 1.5;
   padding: 0.5rem 0.75rem;
@@ -4871,6 +4871,20 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   visibility: visible; }
 
 /* EVERYTHING BELOW HERE NEEDS ORGANIZED INTO PARTIALS */
+html,
+body {
+  background: mintcream; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: mintcream; }
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace; }
+
 .hidden {
   display: none; }
 
