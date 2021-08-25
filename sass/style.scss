@@ -30,6 +30,10 @@ code {
 
 .navbar-item { color: inherit; }
 
+.navbar-burger { height: auto; }
+
+.navbar-brand { @include mobile { background-color: lightgrey; } }
+
 .hidden { display: none; }
 
 .App {

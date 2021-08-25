@@ -4888,6 +4888,13 @@ code {
 .navbar-item {
   color: inherit; }
 
+.navbar-burger {
+  height: auto; }
+
+@media screen and (max-width: 768px) {
+  .navbar-brand {
+    background-color: lightgrey; } }
+
 .hidden {
   display: none; }
 
