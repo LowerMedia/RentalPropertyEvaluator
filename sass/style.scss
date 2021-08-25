@@ -1,50 +1,187 @@
 @charset "utf-8";
-
 // Import a Google Font
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
+@import "config/var_config";
+@import "config/bulma_import";
+@import "partials/tooltip";
 
-// Set your brand colors
-$purple: #8A4D76;
-$pink: #FA7C91;
-$brown: #757763;
-$beige-light: #D0D1CD;
-$beige-lighter: #EFF0EB;
 
-// Update Bulma's global variables
-$family-sans-serif: "Nunito", sans-serif;
-$grey-dark: $brown;
-$grey-light: $beige-light;
-$primary: forestgreen;
-$link: green;
-$widescreen-enabled: false;
-$fullhd-enabled: false;
+/* EVERYTHING BELOW HERE NEEDS ORGANIZED INTO PARTIALS */
 
-// Update some of Bulma's component variables
-$body-background-color: $beige-lighter;
-$control-border-width: 2px;
-$input-border-color: transparent;
-$input-shadow: none;
 
-// Navbar
-$navbar-background-color: transparent;
+.hidden { display: none; }
 
-// @import "../node_modules/bulma/bulma.sass";
-@import "../node_modules/bulma/sass/utilities/_all.sass";
-@import "../node_modules/bulma/sass/base/_all.sass";
-@import "../node_modules/bulma/sass/elements/button.sass";
-@import "../node_modules/bulma/sass/elements/container.sass";
-// @import "../node_modules/bulma/sass/elements/title.sass";
-@import "../node_modules/bulma/sass/form/_all.sass";
-@import "../node_modules/bulma/sass/components/navbar.sass";
-// @import "../node_modules/bulma/sass/layout/hero.sass";
-// @import "../node_modules/bulma/sass/layout/section.sass";
-@import "../node_modules/bulma/sass/grid/_all";
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: black;
+}
 
-@import "../node_modules/bulma/sass/helpers/_all";
+.FieldsSection span { color: black; }
 
-  @media screen and (min-width: 1024px) {
-    .container {
-      max-width: 1200px; } }
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+h5 { margin-bottom: 0.5rem; }
+
+.left { text-align: left; }
+
+.right { text-align: right; }
+
+.mb-half { margin-bottom: 0.5rem; }
+
+.mb-3 { margin-bottom: 3rem; }
+
+.mt-3 { margin-top: 3rem; }
+
+.mt-0 { margin-top: 0; }
+
+.pt-1 { padding-top: 1rem; }
+
+.pl-1 { padding-left: 1rem; }
+
+.px {
+  padding-top:  3rem;
+  padding-bottom:  3rem;
+}
+
+.flex { display: flex; }
+
+.flex-wrap { flex-wrap: wrap; }
+
+.space-between { justify-content: space-between; }
+
+.width-one-fifth { min-width: 20%; }
+
+.width-half { width: 50%; }
+
+.width-three-quarters { width: 75%; }
+
+.width-full { width: 100%; }
+
+input {
+  text-align: right;
+  max-width: 100px;
+  border: 1px solid rgba(0,0,0,0.25);
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.is-size-half { font-size: 0.5rem; }
+
+.is-size-1 { font-size: 1rem; }
+
+label {
+  padding-right: 15px;
+  align-self: center;
+}
+
+.formItemFieldWrap { align-items: center; }
+
+.side-padded {
+  padding-left:  0.75rem;
+  padding-right:  0.75rem;
+}
+
+.number-symbol {
+  font-size:  0.85rem;
+}
+
+@media screen and (max-width: 767px) {
+  .formItem {
+    padding-right:  1rem;
+  }
+}
+
+.number-symbol.dollar { left: -12.5px; }
+
+.number-symbol.percentage { right: -15px; }
+
+.number-symbol.years { right: -22.5px; }
+
+.position-relative { position: relative; }
+
+.position-absolute { position: absolute; }
+
+.has-text-white { color: white; }
+
+.has-background-white { background-color: white; }
+
+.has-background-black { background-color: black; }
+
+.circle-background { border-radius: 100px 100px 100px 100px; }
+
+[data-ispassing="false"] span { color: red; }
+
+[data-ispassing="true"] span { color: darkgreen; }
+
+span.calculatedValue {
+  font-size: 0.75rem;
+  padding-right: 5px;
+}
+
+.disabled {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: default;
+}
+
+.title-border {
+  border-bottom: 1px solid black;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+}
+
+@media screen and (max-width: 767px) {
+  .collapsable h3:before {
+    content: "-";
+    padding-right:  7.5px;
+  }
+
+  .collapsable.collapsed h3:before {
+    content: "+";
+    padding-right:  3.5px;
+  }
+
+  .collapsable form .formItem {
+    height: 37.5px;
+    transition: height 1s;
+    overflow: hidden;
+  }
+
+  .collapsable.collapsed form .formItem {
+    height: 0;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .container {
+    max-width: 1200px;
+  }
+}
 
 .resultsBox { border: 5px groove black; }
 
@@ -56,58 +193,4 @@ $navbar-background-color: transparent;
 .results span:last-of-type {
   min-width: 85px;
   text-align: right;
-}
-
-// .results {
-// 	position: relative;
-// }
-
-// .tooltip {
-// 	position: absolute;
-// 	background: pink;
-// 	font-size: 0;
-// 	display: none;
-
-// 	&:hover,
-// 	&:focus { display: inherit; }
-// }
-
-// .tooltiptext {
-// 	font-size: 0.75rem;
-// 	padding: 1px;
-// 	position: relative;
-// 	top: -20px;
-// 	margin-left: 100px;
-// 	background: rgba(0,0,0,0.25)
-// }
-
-/* Tooltip container */
-.tooltip {
-  position: relative;
-  display: inline-block;
-  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
-}
-
-/* Tooltip text */
-.tooltip .tooltiptext {
-  font-size: 0.75rem;
-  visibility: hidden;
-  width: 200px;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  padding: 5px 0;
-  border-radius: 6px;
- 
-  /* Position the tooltip text - see examples below! */
-  position: absolute;
-  z-index: 1;
-
-  margin-left: 105px;
-  top: 0;
-}
-
-/* Show the tooltip text when you mouse over the tooltip container */
-.tooltip:hover .tooltiptext {
-  visibility: visible;
 }
