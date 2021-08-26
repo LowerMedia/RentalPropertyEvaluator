@@ -51,6 +51,12 @@ class RentalPropertyEvaluator extends React.Component {
 	componentDidMount() {
 		this.calcAllDynamically(3);
 		console.log('cur state ', this.state);
+		document.querySelectorAll('.rpe-reset-link').forEach( el => {
+			el.addEventListener('click', (e) => {
+				e.preventDefault();
+				this.resetLocalStorage()
+			});
+		});
 	}
 
 	saveStateToLocalStorage() {

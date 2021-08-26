@@ -57,7 +57,7 @@ class Navbar extends React.Component {
 			          <a href='/' className='button'>
 			            <strong>Export</strong>
 			          </a>
-			          <a href='/' className='button is-primary'>
+			          <a href='/' className='button is-primary rpe-reset-link'>
 			            Reset
 			          </a>
 			        </div>
