@@ -51,6 +51,12 @@ class RentalPropertyEvaluator extends React.Component {
 	componentDidMount() {
 		this.calcAllDynamically(3);
 		console.log('cur state ', this.state);
+		document.querySelectorAll('.rpe-reset-link').forEach( el => {
+			el.addEventListener('click', (e) => {
+				e.preventDefault();
+				this.resetLocalStorage()
+			});
+		});
 	}
 
 	saveStateToLocalStorage() {
@@ -84,21 +90,23 @@ class RentalPropertyEvaluator extends React.Component {
 
 	render() {
 		return(
-			<section className="columns is-multiline container column width-full is-marginless is-paddingless">
-				<section className="grid space-between flex-wrap columns container mr-0 is-marginless">
-					<FieldsSection onCheckboxToggle={this.onCheckboxToggle} PurchasePrice={this.state.changeable.PurchasePrice} sectionTitle={"Income & Mortgage"} handleFieldChange={this.handleFieldChange} curState={this.state} sectionId="RentalPropertyEvaluatorForm" fieldsArray={FieldDataObject.EvalFormFieldsArray} />
-					<FieldsSection onCheckboxToggle={this.onCheckboxToggle} PurchasePrice={this.state.changeable.PurchasePrice} sectionTitle={"Expenses"} handleFieldChange={this.handleFieldChange} curState={this.state} sectionId="ExpenseSection" fieldsArray={FieldDataObject.ExpenseFormFieldsArray} />
-					<section className="FieldsSection side-padded width-one-fifth column py-0 is-5 resultsBox has-background-white">
-						<h3 className='left is-size-4 is-italic has-font-weight-bold title-border'>Results</h3>
-						{ FieldDataObject.ResultsBoxFields.map( (field,key) => <ResultsField key={key} isPassing={(field.threshold)?(this.state.calculated[field.id] > field.threshold)?"true":"false":null} result={(this.state.calculated[field.id]) ? this.state.calculated[field.id] : this.state[field.id]} toolTip={field.toolTip} fieldTitle={field.id} labelText={field.labelText} monthYear={field.monthYear} isPercentage={field.isPercentage} />) }
-						<h5 className='right is-size-4 is-italic has-font-weight-bold title-border is-size-6'>Monthly &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Yearly</h5>
-						{ FieldDataObject.ResultsBoxFieldsMonthlyYearly.map( (field,key) => <ResultsField key={key} isPassing={(field.threshold)?(this.state.calculated[field.id] > field.threshold)?"true":"false":null} result={(this.state.calculated[field.id]) ? this.state.calculated[field.id] : this.state[field.id]} toolTip={field.toolTip} fieldTitle={field.id} labelText={field.labelText} monthYear={field.monthYear} isPercentage={field.isPercentage} />) }
+		 	<div className="App hide-branding mx-3 columns">
+				<section className="columns is-multiline container column width-full is-marginless is-paddingless">
+					<section className="grid space-between flex-wrap columns container mr-0 is-marginless">
+						<FieldsSection onCheckboxToggle={this.onCheckboxToggle} PurchasePrice={this.state.changeable.PurchasePrice} sectionTitle={"Income & Mortgage"} handleFieldChange={this.handleFieldChange} curState={this.state} sectionId="RentalPropertyEvaluatorForm" fieldsArray={FieldDataObject.EvalFormFieldsArray} />
+						<FieldsSection onCheckboxToggle={this.onCheckboxToggle} PurchasePrice={this.state.changeable.PurchasePrice} sectionTitle={"Expenses"} handleFieldChange={this.handleFieldChange} curState={this.state} sectionId="ExpenseSection" fieldsArray={FieldDataObject.ExpenseFormFieldsArray} />
+						<section className="FieldsSection side-padded width-one-fifth column py-0 is-5 resultsBox has-background-white">
+							<h3 className='left is-size-4 is-italic has-font-weight-bold title-border'>Results</h3>
+							{ FieldDataObject.ResultsBoxFields.map( (field,key) => <ResultsField key={key} isPassing={(field.threshold)?(this.state.calculated[field.id] > field.threshold)?"true":"false":null} result={(this.state.calculated[field.id]) ? this.state.calculated[field.id] : this.state[field.id]} toolTip={field.toolTip} fieldTitle={field.id} labelText={field.labelText} monthYear={field.monthYear} isPercentage={field.isPercentage} />) }
+							<h5 className='right is-size-4 is-italic has-font-weight-bold title-border is-size-6'>Monthly &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Yearly</h5>
+							{ FieldDataObject.ResultsBoxFieldsMonthlyYearly.map( (field,key) => <ResultsField key={key} isPassing={(field.threshold)?(this.state.calculated[field.id] > field.threshold)?"true":"false":null} result={(this.state.calculated[field.id]) ? this.state.calculated[field.id] : this.state[field.id]} toolTip={field.toolTip} fieldTitle={field.id} labelText={field.labelText} monthYear={field.monthYear} isPercentage={field.isPercentage} />) }
+						</section>
+					</section>
+					<section className="grid space-between flex-wrap column is-full">
+						<LocalStorage resetLocalStorage={() => this.resetLocalStorage()} />
 					</section>
 				</section>
-				<section className="grid space-between flex-wrap column is-full">
-					<LocalStorage resetLocalStorage={() => this.resetLocalStorage()} />
-				</section>
-			</section>
+			</div>
 		);
 	}
 }
