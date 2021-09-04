@@ -7,21 +7,13 @@ import Footer from './components/Footer';
 import RouterSwitch from './components/RouterSwitch';
 import reportWebVitals from './reportWebVitals';
 
-function ComingSoon() {
-  return <section className='coming-soon container my-6'>
-            <h1>Coming Soon</h1>
-            <p>Calculate the ROI of a potential rental property in real-time!</p>
-        </section>;
-}
-
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <ComingSoon />
-      {/*<Navbar />
+      <Navbar />
       <Header />
       <RouterSwitch />
-      <Footer />*/}
+      <Footer />
     </Router>
   </React.StrictMode>,
   document.getElementById('root')
