@@ -6,7 +6,7 @@ const FieldDataObject = {
 		HOA: 0,
 		IncludeClosingCostsInMortgage: false,
 		Insurance:800,
-		InterestRate: 4.5,
+		InterestRate: 4.25,
 		LoanTerm: 30,
 		MaintRepExpense:0,
 		MiscExpense:0,
