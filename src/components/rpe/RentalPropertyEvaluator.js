@@ -16,7 +16,7 @@ class RentalPropertyEvaluator extends React.Component {
 		console.log('field has changed ', inputChanged, newValue)
 		await this.setState( ( prevState ) => {
 			const newState = { ...prevState };
-			newState.changeable[inputChanged] = parseInt( newValue );
+			newState.changeable[inputChanged] = parseFloat( newValue );
 			return newState;
 		})
 		await this.calcAllDynamically();
