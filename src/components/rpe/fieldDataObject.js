@@ -53,13 +53,13 @@ const FieldDataObject = {
 
 	ResultsBoxFields: [
 		{id:"CoCROI",labelText:"CoCROI (Year 1)",isPercentage:"true",threshold:10,toolTip:"( ( ( Gross Rent ) + ( Other Income) ) - ( Vacancy + Operating Expenses + Annual Mortgage Payments ) )"},
-		{id:"Cap",labelText:"Cap",isPercentage:"true",threshold:7.5,toolTip:"E = mc^2"},
+		{id:"Cap",labelText:"Cap",isPercentage:"true",threshold:7.5,toolTip:"( ( NetOperatingIncome * 12 ) / PurchasePrice ) * 100"},
 		{id:"DebtServiceCoverageRatio",labelText:"DSCR",threshold:1.25,toolTip:"debt to income ratio - cash flow available for debt service / total debt service"},
-		{id:"GrossRentMultiplier",labelText:"GRM",threshold: 1,toolTip:"Purchase Price / Monthly Rent "},
+		{id:"GrossRentMultiplier",labelText:"GRM",threshold: 1,toolTip:"Purchase Price / Monthly Rent (PurchasePrice / TotalMonthlyIncome) "},
 		{id:"OnePercentRule",labelText:"1% Rule", isPercentage:"true",threshold: .99,toolTip:"Monthly Income / Purchase Price"},
-		{id:"EBDITA",labelText:"EBDITA",toolTip:"E = mc^2"},
-		{id:"TotalCashInvested",labelText:"Cash Inv.",toolTip:"E = mc^2"},
-		{id:"TotalLoanAmount",labelText:"Loan Amt",toolTip:"E = mc^2"},
+		{id:"EBDITA",labelText:"EBDITA",toolTip:"totalIncomeYearly + totalTaxesPaidYearly + totalMortgageInterestPaidYearly + totalDeprectiationCostsYearly + totalAmoritizationCostsYearly"},
+		{id:"TotalCashInvested",labelText:"Cash Inv.",toolTip:"ClosingCosts + ((PurchasePrice ) * ( 0.01 * PercentDown ) )"},
+		{id:"TotalLoanAmount",labelText:"Loan Amt",toolTip:"( PurchasePrice + closingCosts ) - ((PurchasePrice + closingCosts) * ( 0.01 * PercentDown ) )"},
 	],
 
 	ResultsBoxFieldsMonthlyYearly: [
