@@ -49,7 +49,9 @@ class RentalPropertyEvaluator extends React.Component {
 	}
 
 	componentDidMount() {
-		this.checkForUrlPayload();
+		if ( this.urlPayloadExists() ) {
+			this.setStateViaUrlPayload();
+		}
 		this.calcAllDynamically(3);
 		console.log('cur state ', this.state);
 		document.querySelectorAll('.rpe-reset-link').forEach( el => {
@@ -58,6 +60,10 @@ class RentalPropertyEvaluator extends React.Component {
 				this.resetLocalStorage()
 			});
 		});
+	}
+
+	componentDidUpdate() {
+		this.calcAllDynamically();
 	}
 
 	saveStateToLocalStorage() {
@@ -89,23 +95,54 @@ class RentalPropertyEvaluator extends React.Component {
 		this.resetStateToDefaults();
 	}
 
-	checkForUrlPayload() {
+	setStateViaUrlPayload() {
 		const urlParams = new URLSearchParams(window.location.search);
 		const entries = urlParams.entries();
-		// this.setState('changeable', entries)
-		// localStorage.setItem({'changeableRPE': entries } )
-		// for(const entry of entries) {
-		// 	console.log(`${entry[0]}: ${entry[1]}`);
-		// 	// console.log(document.getElementById( entry[0] ));
-		// 	// document.getElementById( entry[0] ).setAttribute('value', 9999);
-		// 	// this.setState({changeable[entry[0]:entry[1]]})
-		// }
-		console.log('payload function 1', urlParams.values);
+		for(const entry of entries) {
+			this.setState(previousState => {
+				let stateCopy = Object.assign({}, previousState);
+				stateCopy.changeable[entry[0]] = parseFloat( entry[1] );
+				return stateCopy;
+			});
+		}
+		console.log('setStateViaUrlPayload function', urlParams.values);
 	}
 
-	setValuesFromUrlPayload() {
-		console.log('payload function 2');
+	urlPayloadExists() {
+		const urlParams = new URLSearchParams(window.location.search);
+		console.log( 'urlPayloadExists function ', urlParams.values, urlParams.values().next()['done']);
+		return ! urlParams.values().next()['done'];
 	}
+
+	// generateStateObjectFromUrl() {
+	// 	console.log('payload function 2');
+	// 	const urlParams = new URLSearchParams(window.location.search);
+	// 	const entries = urlParams.entries();
+	// 	console.log( 'checkForUrlPayload return', urlParams.values().next()['done']);
+	// 	// return urlParams.values().next()['done'];
+	// 	// this.setState('changeable', entries)
+	// 	// localStorage.setItem({'changeableRPE': entries } )
+	// 	for(const entry of entries) {
+	// 		// console.log(`${entry[0]}: ${entry[1]}`);
+	// 		// console.log(document.getElementById( entry[0] ));
+	// 		// document.getElementById( entry[0] ).setAttribute('value', 9999);
+	// 		// this.setState({changeable[entry[0]:entry[1]]})
+	// 		this.setState(previousState => {
+	// 			let stateCopy = Object.assign({}, previousState);
+	// 			stateCopy.changeable[entry[0]] = parseFloat( entry[1] );
+	// 			return stateCopy;
+	// 		});
+	// 	}
+	// 	// this.saveStateToLocalStorage();
+	// 	// this.calcAllDynamically();
+	// 	console.log('pete test', localStorage.getItem('changeableRPE'));
+
+	// 	return this.state.changeable;
+	// }
+
+	// setValuesFromUrlPayload() {
+	// 	console.log('payload function 2');
+	// }
 
 	render() {
 		return(
