@@ -49,6 +49,7 @@ class RentalPropertyEvaluator extends React.Component {
 	}
 
 	componentDidMount() {
+		this.checkForUrlPayload();
 		this.calcAllDynamically(3);
 		console.log('cur state ', this.state);
 		document.querySelectorAll('.rpe-reset-link').forEach( el => {
@@ -88,10 +89,28 @@ class RentalPropertyEvaluator extends React.Component {
 		this.resetStateToDefaults();
 	}
 
+	checkForUrlPayload() {
+		const urlParams = new URLSearchParams(window.location.search);
+		const entries = urlParams.entries();
+		// this.setState('changeable', entries)
+		// localStorage.setItem({'changeableRPE': entries } )
+		// for(const entry of entries) {
+		// 	console.log(`${entry[0]}: ${entry[1]}`);
+		// 	// console.log(document.getElementById( entry[0] ));
+		// 	// document.getElementById( entry[0] ).setAttribute('value', 9999);
+		// 	// this.setState({changeable[entry[0]:entry[1]]})
+		// }
+		console.log('payload function 1', urlParams.values);
+	}
+
+	setValuesFromUrlPayload() {
+		console.log('payload function 2');
+	}
+
 	render() {
 		return(
-		 	<div className="App hide-branding mx-3 columns">
-				<section className="columns is-multiline container column width-full is-marginless is-paddingless">
+		 	<div id="rpe-container" className="App hide-branding mx-3 columns">
+				<section id="rental-property-evaluator" className="columns is-multiline container column width-full is-marginless is-paddingless">
 					<section className="grid space-between flex-wrap columns container mr-0 is-marginless">
 						<FieldsSection onCheckboxToggle={this.onCheckboxToggle} PurchasePrice={this.state.changeable.PurchasePrice} sectionTitle={"Income & Mortgage"} handleFieldChange={this.handleFieldChange} curState={this.state} sectionId="RentalPropertyEvaluatorForm" fieldsArray={FieldDataObject.EvalFormFieldsArray} />
 						<FieldsSection onCheckboxToggle={this.onCheckboxToggle} PurchasePrice={this.state.changeable.PurchasePrice} sectionTitle={"Expenses"} handleFieldChange={this.handleFieldChange} curState={this.state} sectionId="ExpenseSection" fieldsArray={FieldDataObject.ExpenseFormFieldsArray} />

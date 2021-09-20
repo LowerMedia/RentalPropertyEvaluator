@@ -22,6 +22,21 @@ class Navbar extends React.Component {
 		  }
 		});
 	}
+	generateShareLink() {
+		return document.URL + this.extractShareLinkPayload();
+	}
+	extractShareLinkPayload() {
+		let payloadString = "?";
+		document.querySelectorAll("#rental-property-evaluator input:not(.disabled)").forEach((i, e) => { // add values to payload string
+			payloadString += i.id + "=" + i.value;
+			payloadString += ( e + 1 !== document.querySelectorAll("#rental-property-evaluator input:not(.disabled)").length ) ? "&" : ""; // don't add '&' after the last value
+		});
+		return payloadString;
+	}
+	copyShareLinkToClipboard(e) {
+		e.preventDefault();
+		navigator.clipboard.writeText( this.generateShareLink() );
+	}
 	render() {
 		return(
 			<nav className='navbar container' role='navigation' aria-label='main navigation'>
@@ -56,6 +71,9 @@ class Navbar extends React.Component {
 			        <div className='buttons'>
 			          <a href='/' className='button'>
 			            <strong>Export</strong>
+			          </a>
+			          <a href='/' className='button' onClick={(e) => this.copyShareLinkToClipboard(e)}>
+			            <strong>Share</strong>
 			          </a>
 			          <a href='/' className='button is-primary rpe-reset-link'>
 			            Reset

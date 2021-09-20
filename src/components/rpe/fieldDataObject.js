@@ -1,18 +1,18 @@
 const FieldDataObject = {
 	
 	changeable: {
-		CapEx:0,
+		CapEx:5,
 		ClosingCosts: 3000,
 		HOA: 0,
 		IncludeClosingCostsInMortgage: false,
 		Insurance:800,
 		InterestRate: 4.25,
 		LoanTerm: 30,
-		MaintRepExpense:0,
+		MaintRepExpense:2.5,
 		MiscExpense:0,
 		MonthlyRent: 1000,
 		PercentDown:20,
-		PropMngtExpense:0,
+		PropMngtExpense:12.5,
 		PurchasePrice: 100000,
 		Taxes: 1500,
 		VacancyExpense:5,
