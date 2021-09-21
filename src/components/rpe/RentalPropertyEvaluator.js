@@ -8,8 +8,33 @@ import RPECalc			from './RPECalc';
 class RentalPropertyEvaluator extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = localStorage.getItem('rpeCalculationsSet') ? {changeable: JSON.parse( localStorage.getItem('changeableRPE') ), calculated: JSON.parse( localStorage.getItem('calculatedRPE') )} : {changeable: FieldDataObject.changeable, calculated:FieldDataObject.calculated}
+		this.state = this.urlPayloadExists() 
+		?  // if URL has params
+			localStorage.getItem('rpeCalculationsSet') 
+				? { // if local storage is
+						changeable: JSON.parse( this.getUrlParamsAsObject() ), 
+						calculated: JSON.parse( localStorage.getItem('calculatedRPE') )
+				} 
+				: {
+						changeable: FieldDataObject.changeable, 
+						calculated: FieldDataObject.calculated
+				}
+		:
+			localStorage.getItem('rpeCalculationsSet') 
+				? {
+						changeable: JSON.parse( localStorage.getItem('changeableRPE') ), 
+						calculated: JSON.parse( localStorage.getItem('calculatedRPE') )
+				} 
+				: {
+						changeable: FieldDataObject.changeable, 
+						calculated: FieldDataObject.calculated
+				}
+
 		this.handleFieldChange = this.handleFieldChange.bind(this);
+	}
+
+	getUrlParamsAsObject() {
+		return JSON.stringify( Object.fromEntries( new URLSearchParams(window.location.search).entries() ) );
 	}
 
 	async handleFieldChange(inputChanged, newValue) {
@@ -53,17 +78,12 @@ class RentalPropertyEvaluator extends React.Component {
 			this.setStateViaUrlPayload();
 		}
 		this.calcAllDynamically(3);
-		console.log('cur state ', this.state);
 		document.querySelectorAll('.rpe-reset-link').forEach( el => {
 			el.addEventListener('click', (e) => {
 				e.preventDefault();
 				this.resetLocalStorage()
 			});
 		});
-	}
-
-	componentDidUpdate() {
-		this.calcAllDynamically();
 	}
 
 	saveStateToLocalStorage() {
@@ -92,57 +112,21 @@ class RentalPropertyEvaluator extends React.Component {
 
 	resetLocalStorage() {
 		localStorage.clear();
+		window.history.pushState({}, document.title, "/" ); // clear any URL params
 		this.resetStateToDefaults();
 	}
 
-	setStateViaUrlPayload() {
+	async setStateViaUrlPayload() {
 		const urlParams = new URLSearchParams(window.location.search);
 		const entries = urlParams.entries();
 		for(const entry of entries) {
-			this.setState(previousState => {
-				let stateCopy = Object.assign({}, previousState);
-				stateCopy.changeable[entry[0]] = parseFloat( entry[1] );
-				return stateCopy;
-			});
+			await this.handleFieldChange(entry[0], entry[1]);
 		}
-		console.log('setStateViaUrlPayload function', urlParams.values);
 	}
 
 	urlPayloadExists() {
-		const urlParams = new URLSearchParams(window.location.search);
-		console.log( 'urlPayloadExists function ', urlParams.values, urlParams.values().next()['done']);
-		return ! urlParams.values().next()['done'];
+		return ! new URLSearchParams( window.location.search ).values().next()['done'];
 	}
-
-	// generateStateObjectFromUrl() {
-	// 	console.log('payload function 2');
-	// 	const urlParams = new URLSearchParams(window.location.search);
-	// 	const entries = urlParams.entries();
-	// 	console.log( 'checkForUrlPayload return', urlParams.values().next()['done']);
-	// 	// return urlParams.values().next()['done'];
-	// 	// this.setState('changeable', entries)
-	// 	// localStorage.setItem({'changeableRPE': entries } )
-	// 	for(const entry of entries) {
-	// 		// console.log(`${entry[0]}: ${entry[1]}`);
-	// 		// console.log(document.getElementById( entry[0] ));
-	// 		// document.getElementById( entry[0] ).setAttribute('value', 9999);
-	// 		// this.setState({changeable[entry[0]:entry[1]]})
-	// 		this.setState(previousState => {
-	// 			let stateCopy = Object.assign({}, previousState);
-	// 			stateCopy.changeable[entry[0]] = parseFloat( entry[1] );
-	// 			return stateCopy;
-	// 		});
-	// 	}
-	// 	// this.saveStateToLocalStorage();
-	// 	// this.calcAllDynamically();
-	// 	console.log('pete test', localStorage.getItem('changeableRPE'));
-
-	// 	return this.state.changeable;
-	// }
-
-	// setValuesFromUrlPayload() {
-	// 	console.log('payload function 2');
-	// }
 
 	render() {
 		return(

@@ -26,11 +26,19 @@ class Navbar extends React.Component {
 		return document.URL + this.extractShareLinkPayload();
 	}
 	extractShareLinkPayload() {
+		console.log('extractShareLinkPayload function has run');
 		let payloadString = "?";
 		document.querySelectorAll("#rental-property-evaluator input:not(.disabled)").forEach((i, e) => { // add values to payload string
+			if (i.value === "false") { // if false and not an int, set to 0
+				i.value = 0;
+			}
+			if (i.value === "true") { // if true and not an int, set to 0
+				i.value = 1;
+			}
 			payloadString += i.id + "=" + i.value;
 			payloadString += ( e + 1 !== document.querySelectorAll("#rental-property-evaluator input:not(.disabled)").length ) ? "&" : ""; // don't add '&' after the last value
 		});
+		console.log(payloadString);
 		return payloadString;
 	}
 	copyShareLinkToClipboard(e) {
