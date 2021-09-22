@@ -1,18 +1,18 @@
 const FieldDataObject = {
 	
 	changeable: {
-		CapEx:5,
+		CapEx:0,
 		ClosingCosts: 3000,
 		HOA: 0,
 		IncludeClosingCostsInMortgage: false,
 		Insurance:800,
-		InterestRate: 4.25,
+		InterestRate: 4.5,
 		LoanTerm: 30,
-		MaintRepExpense:2.5,
+		MaintRepExpense:0,
 		MiscExpense:0,
 		MonthlyRent: 1000,
 		PercentDown:20,
-		PropMngtExpense:12.5,
+		PropMngtExpense:0,
 		PurchasePrice: 100000,
 		Taxes: 1500,
 		VacancyExpense:5,
@@ -63,10 +63,10 @@ const FieldDataObject = {
 	],
 
 	ResultsBoxFieldsMonthlyYearly: [
-		{id:"NetOperatingIncome",labelText:"NOI", monthYear:true,toolTip:"E = mc^2"},
-		{id:"CashFlow",labelText:"CashFlow", monthYear:true,toolTip:"E = mc^2"},
-		{id:"TotalMonthlyIncome",labelText:"Income", monthYear:true,toolTip:"E = mc^2"},
-		{id:"MortgagePayment",labelText:"Mortgage", monthYear:true,toolTip:"E = mc^2"},
+		{id:"NetOperatingIncome",labelText:"NOI", monthYear:true,toolTip:"Total Monthly Income - Total Monthly Expenses"},
+		{id:"CashFlow",labelText:"CashFlow", monthYear:true,toolTip:"Total Monthly Income - Total Monthly Expenses - Mortgage Payment"},
+		{id:"TotalMonthlyIncome",labelText:"Income", monthYear:true,toolTip:"Monthly Rent"},
+		{id:"MortgagePayment",labelText:"Mortgage", monthYear:true,toolTip:"( TotalLoanAmount * ( ( InterestRate * 0.01 ) / 12 ) * Math.pow( ( 1 + ( ( InterestRate * 0.01 ) / 12 ) ), ( LoanTermMonths ) ) ) / ( Math.pow( ( 1 + ( ( InterestRate * 0.01 ) / 12 )), ( LoanTerm * 12 )) - 1 )"},
 		{id:"TotalInterestPaid",labelText:"Ttl Intrst Paid", monthYear:true,toolTip:"Principal * Rate * Time"},
 	],
 
