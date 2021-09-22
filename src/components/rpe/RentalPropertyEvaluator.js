@@ -8,25 +8,12 @@ import RPECalc			from './RPECalc';
 class RentalPropertyEvaluator extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = this.urlPayloadExists() 
-		?  // if URL has params
-			localStorage.getItem('rpeCalculationsSet') 
-				? { // if local storage is
-						changeable: JSON.parse( this.getUrlParamsAsObject() ), 
+		this.state = localStorage.getItem('rpeCalculationsSet')
+				? { // if local storage is set
+						changeable: JSON.parse( this.urlPayloadExists() ? this.getUrlParamsAsObject() : localStorage.getItem('changeableRPE') ),
 						calculated: JSON.parse( localStorage.getItem('calculatedRPE') )
-				} 
-				: {
-						changeable: FieldDataObject.changeable, 
-						calculated: FieldDataObject.calculated
-				}
-		:
-			localStorage.getItem('rpeCalculationsSet') 
-				? {
-						changeable: JSON.parse( localStorage.getItem('changeableRPE') ), 
-						calculated: JSON.parse( localStorage.getItem('calculatedRPE') )
-				} 
-				: {
-						changeable: FieldDataObject.changeable, 
+				} : {
+						changeable: this.urlPayloadExists() ? JSON.parse( this.getUrlParamsAsObject() ) : FieldDataObject.changeable,
 						calculated: FieldDataObject.calculated
 				}
 
