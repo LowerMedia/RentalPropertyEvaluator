@@ -12,6 +12,12 @@ function Info() {
           <div className="column mt-2"> <small>({index.id}) = <i>{index.toolTip}</i></small></div>
         </li>;
       })}
+      {FieldDataObject.ResultsBoxFieldsMonthlyYearly.map(function(index) {
+        return <li className="is-flex is-justify-content-flex-start is-vcentered">
+          <div className="is-2 column pl-0"><strong className='is-size-4'>{index.labelText}</strong></div>
+          <div className="column mt-2"> <small>({index.id}) = <i>{index.toolTip}</i></small></div>
+        </li>;
+      })}
       </ul>
     </p>
   </section>;
