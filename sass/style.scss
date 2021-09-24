@@ -34,6 +34,8 @@ code {
 
 .navbar-brand { @include mobile { background-color: lightgrey; } }
 
+.navbar-menu  { @include mobile { background-color: whitesmoke; } }
+
 .hidden { display: none; }
 
 .App {
@@ -191,6 +193,7 @@ span.calculatedValue {
   }
 
   .collapsable.collapsed form .formItem {
+    margin-bottom: 0 !important;
     height: 0;
   }
 }
