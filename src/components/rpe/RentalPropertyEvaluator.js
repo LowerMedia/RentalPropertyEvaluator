@@ -99,8 +99,10 @@ class RentalPropertyEvaluator extends React.Component {
 
 	resetLocalStorage() {
 		localStorage.clear();
-		window.history.pushState({}, document.title, "/" ); // clear any URL params
 		this.resetStateToDefaults();
+		if ( window.history.pushState["arguments"] ) { // if has URL params
+			window.history.pushState({}, document.title, "/" ); // clear any URL params
+		}
 	}
 
 	async setStateViaUrlPayload() {
