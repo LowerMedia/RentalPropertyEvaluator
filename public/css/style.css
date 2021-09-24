@@ -4895,6 +4895,10 @@ code {
   .navbar-brand {
     background-color: lightgrey; } }
 
+@media screen and (max-width: 768px) {
+  .navbar-menu {
+    background-color: whitesmoke; } }
+
 .hidden {
   display: none; }
 
@@ -5066,6 +5070,7 @@ span.calculatedValue {
     transition: height 1s;
     overflow: hidden; }
   .collapsable.collapsed form .formItem {
+    margin-bottom: 0 !important;
     height: 0; } }
 
 @media screen and (min-width: 1024px) {
