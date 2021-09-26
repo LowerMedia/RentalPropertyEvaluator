@@ -49,7 +49,12 @@ export default class RentalPropertyEvaluator extends React.Component {
 			})
 			count--;
 		}
-		this.saveStateToLocalStorage();
+
+		if ( ! localStorage.getItem('rpeCalculationsSet') ) {
+			this.saveStateToLocal();
+		} else {
+			this.saveStateToLocal( this.state.changeable, this.state.calculated );
+		}
 
 		try {
 			document.getElementById('TotalExpensesMonthly').value = this.state.calculated.TotalExpensesMonthly.toFixed(2); // TODO: fix via passing updated state to input field
@@ -73,22 +78,15 @@ export default class RentalPropertyEvaluator extends React.Component {
 		});
 	}
 
-	saveStateToLocalStorage() {
-		if ( ! localStorage.getItem('rpeCalculationsSet')) {
-			localStorage.setItem('rpeCalculationsSet', true);
-			localStorage.setItem('changeableRPE', JSON.stringify( { ...FieldDataObject.changeable } ));
-			localStorage.setItem('calculatedRPE', JSON.stringify( { ...FieldDataObject.calculated } ));
-		} else {
-			localStorage.setItem('changeableRPE', JSON.stringify( this.state.changeable ));
-			localStorage.setItem('calculatedRPE', JSON.stringify( this.state.calculated ));
-		}
+	saveStateToLocal( changeable = { ...FieldDataObject.changeable }, calculated = { ...FieldDataObject.calculated } ) { // saves default values if no args present
+		localStorage.setItem('rpeCalculationsSet', true);
+		localStorage.setItem('changeableRPE', JSON.stringify( changeable ));
+		localStorage.setItem('calculatedRPE', JSON.stringify( calculated ));
 	}
 
 	async resetStateToDefaults() {
-		await localStorage.setItem('changeableRPE', JSON.stringify( { ...FieldDataObject.changeable } ));
-		await localStorage.setItem('calculatedRPE', JSON.stringify( { ...FieldDataObject.calculated } ));
+		this.saveStateToLocal();
 		await this.setState({changeable: JSON.parse( localStorage.getItem('changeableRPE') ), calculated: JSON.parse( localStorage.getItem('calculatedRPE') ) });
-		
 		await this.calcAllDynamically();
 		for (var key of Object.keys(this.state.changeable)) {
 			try {
@@ -101,7 +99,6 @@ export default class RentalPropertyEvaluator extends React.Component {
 	}
 
 	resetLocalStorage() {
-		// localStorage.clear();
 		this.resetStateToDefaults();
 		if ( window.history.pushState["arguments"] ) { // if has URL params
 			window.history.pushState({}, document.title, "/" ); // clear any URL params
