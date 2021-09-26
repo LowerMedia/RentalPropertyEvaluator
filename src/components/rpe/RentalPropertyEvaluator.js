@@ -76,8 +76,8 @@ class RentalPropertyEvaluator extends React.Component {
 	saveStateToLocalStorage() {
 		if ( ! localStorage.getItem('rpeCalculationsSet')) {
 			localStorage.setItem('rpeCalculationsSet', true);
-			localStorage.setItem('changeableRPE', JSON.stringify( FieldDataObject.changeable ));
-			localStorage.setItem('calculatedRPE', JSON.stringify( FieldDataObject.calculated ));
+			localStorage.setItem('changeableRPE', JSON.stringify( { ...FieldDataObject.changeable } ));
+			localStorage.setItem('calculatedRPE', JSON.stringify( { ...FieldDataObject.calculated } ));
 		} else {
 			localStorage.setItem('changeableRPE', JSON.stringify( this.state.changeable ));
 			localStorage.setItem('calculatedRPE', JSON.stringify( this.state.calculated ));
@@ -85,7 +85,10 @@ class RentalPropertyEvaluator extends React.Component {
 	}
 
 	async resetStateToDefaults() {
-		await this.setState({changeable: FieldDataObject.changeable, calculated:FieldDataObject.calculated});
+		await localStorage.setItem('changeableRPE', JSON.stringify( { ...FieldDataObject.changeable } ));
+		await localStorage.setItem('calculatedRPE', JSON.stringify( { ...FieldDataObject.calculated } ));
+		await this.setState({changeable: JSON.parse( localStorage.getItem('changeableRPE') ), calculated: JSON.parse( localStorage.getItem('calculatedRPE') ) });
+		
 		await this.calcAllDynamically(2);
 		for (var key of Object.keys(this.state.changeable)) {
 			try {
@@ -98,7 +101,7 @@ class RentalPropertyEvaluator extends React.Component {
 	}
 
 	resetLocalStorage() {
-		localStorage.clear();
+		// localStorage.clear();
 		this.resetStateToDefaults();
 		if ( window.history.pushState["arguments"] ) { // if has URL params
 			window.history.pushState({}, document.title, "/" ); // clear any URL params

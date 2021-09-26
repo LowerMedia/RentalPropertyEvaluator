@@ -47,8 +47,8 @@ export default class AdjustableInputField extends React.Component {
 				<div className="formItemFieldWrap is-flex position-relative">
 					{ this.displayCalculatedValue(this.props) }
 					{ this.displayBeforeSymbol(this.props.numType) }
-					{ this.props.inputType === "checkbox" ? <input value={this.state.value} type={this.props.inputType} id="IncludeClosingCostsInMortgage" checked={this.state.value} onChange={(e)=>this.onCheckboxToggle(e,this.props)} />: null }
-					{ this.props.inputType !== "checkbox" ? <input value={this.state.value} type="number" id={this.props.id} onKeyPress={(e) => this.checkKeyPress(e)} onChange={(e) => this.childHandleFieldChange(this.props.id,e.target.value,e)} data-testid={this.props.id} name={this.props.id} aria-labelledby={`${this.props.id}-ariaLabel`} className={this.props.fieldType === "variableExpenseTotal" ? "disabled" : "adjustable"} /> : null }
+					{ this.props.inputType === "checkbox" ? <input defaultValue={this.state.value} type={this.props.inputType} id="IncludeClosingCostsInMortgage" checked={this.state.value} onChange={(e)=>this.onCheckboxToggle(e,this.props)} />: null }
+					{ this.props.inputType !== "checkbox" ? <input defaultValue={this.state.value} type="number" id={this.props.id} onKeyPress={(e) => this.checkKeyPress(e)} onChange={(e) => this.childHandleFieldChange(this.props.id,e.target.value,e)} data-testid={this.props.id} name={this.props.id} aria-labelledby={`${this.props.id}-ariaLabel`} className={this.props.fieldType === "variableExpenseTotal" ? "disabled" : "adjustable"} /> : null }
 					{ this.displayAfterSymbol(this.props.numType) }
 				</div>
 			</div>
