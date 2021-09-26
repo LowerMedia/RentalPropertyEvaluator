@@ -22,24 +22,24 @@ export default class AdjustableInputField extends React.Component {
 		this.setState({value:targetValue});
 		await this.props.handleFieldChange(props,targetValue);
 	}
-  async onCheckboxToggle(event,props) {
-  	await this.setState({ value: event.target.checked })
-      this.props.curState.changeable[event.target.id] = event.target.checked
+	async onCheckboxToggle(event,props) {
+		await this.setState({ value: event.target.checked })
+		this.props.curState.changeable[event.target.id] = event.target.checked
 		await this.props.handleFieldChange(props,this.state.value);
-  }
-  getSymbolHtml(type) {
-  	return <span className={"position-absolute number-symbol " + type}>{type === 'currency' ? "$" : type === 'years' ? "yrs" : "%"}</span>;
-  }
-  displayBeforeSymbol(type) {
+	}
+	getSymbolHtml(type) {
+		return <span className={"position-absolute number-symbol " + type}>{type === 'currency' ? "$" : type === 'years' ? "yrs" : "%"}</span>;
+	}
+	displayBeforeSymbol(type) {
 		return ( type === "currency" ) ? this.getSymbolHtml(type) : '';
-  }
-  displayAfterSymbol(type) {
+	}
+	displayAfterSymbol(type) {
 		return ( type === "percentage" ) ? this.getSymbolHtml(type) : type === "years" ? this.getSymbolHtml(type) : '';
-  }
-  displayCalculatedValue(props) {
-  	let calculatedValue = props.id === 'TotalPercentageExpensesEstimate' && props.curState.calculated.TotalDollarExpensesEstimate ? props.curState.calculated.TotalDollarExpensesEstimate : props.fieldType === 'variableExpense' ? props.curState.calculated[props.id] : null;
+	}
+	displayCalculatedValue(props) {
+		let calculatedValue = props.id === 'TotalPercentageExpensesEstimate' && props.curState.calculated.TotalDollarExpensesEstimate ? props.curState.calculated.TotalDollarExpensesEstimate : props.fieldType === 'variableExpense' ? props.curState.calculated[props.id] : null;
 		return ( calculatedValue === null ) ? '' : <span className="calculatedValue">({calculatedValue.toFixed(2)})</span>;			
-  }
+	}
 	render() {
 		return(
 			<div className='formItem flex space-between position-relative mb-2'>
