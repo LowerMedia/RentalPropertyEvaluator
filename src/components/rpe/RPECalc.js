@@ -5,6 +5,7 @@ const RPECalc = {
 	// TODO: alpha sort or break down income/expense/other and then alpha sort
 	// TODO: add deprec and amort costs
 	// TODO: fix ability to make incl in mortgage toggler false by default
+	// TODO: convert form to Formik (https://formik.org/docs/examples/checkboxes)
 
 	PITI: (state) => { // WIP
 		return state.calculated.YearlyMortgagePayment + state.changeable.Taxes + state.calculated.TotalInterestPaidYearly;// todo: add deprec and amort costs
