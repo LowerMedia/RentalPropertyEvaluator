@@ -122,8 +122,20 @@ class RentalPropertyEvaluator extends React.Component {
 		 	<div id="rpe-container" className="App hide-branding mx-3 columns">
 				<section id="rental-property-evaluator" className="columns is-multiline container column width-full">
 					<section className="grid space-between flex-wrap columns container mr-0 is-marginless">
-						<FieldsSection onCheckboxToggle={this.onCheckboxToggle} PurchasePrice={this.state.changeable.PurchasePrice} sectionTitle={"Income & Mortgage"} handleFieldChange={this.handleFieldChange} curState={this.state} sectionId="RentalPropertyEvaluatorForm" fieldsArray={FieldDataObject.EvalFormFieldsArray} />
-						<FieldsSection onCheckboxToggle={this.onCheckboxToggle} PurchasePrice={this.state.changeable.PurchasePrice} sectionTitle={"Expenses"} handleFieldChange={this.handleFieldChange} curState={this.state} sectionId="ExpenseSection" fieldsArray={FieldDataObject.ExpenseFormFieldsArray} />
+						<FieldsSection 
+							curState={this.state} 
+							sectionTitle={"Income & Mortgage"} 
+							sectionId="RentalPropertyEvaluatorForm" 
+							onCheckboxToggle={this.onCheckboxToggle}
+							handleFieldChange={this.handleFieldChange} 
+							fieldsArray={FieldDataObject.EvalFormFieldsArray} />
+						<FieldsSection 
+							curState={this.state} 
+							sectionTitle={"Expenses"}  
+							sectionId="ExpenseSection" 
+							onCheckboxToggle={this.onCheckboxToggle}
+							handleFieldChange={this.handleFieldChange}
+							fieldsArray={FieldDataObject.ExpenseFormFieldsArray} />
 						<section className="FieldsSection side-padded width-one-fifth column py-0 is-5 resultsBox has-background-white is-fit-content">
 							<h3 className='left is-size-4 is-italic has-font-weight-bold title-border'>Results</h3>
 							{ FieldDataObject.ResultsBoxFields.map( (field,key) => <ResultsField key={key} isPassing={(field.threshold)?(this.state.calculated[field.id] > field.threshold)?"true":"false":null} result={(this.state.calculated[field.id]) ? this.state.calculated[field.id] : this.state[field.id]} toolTip={field.toolTip} fieldTitle={field.id} labelText={field.labelText} monthYear={field.monthYear} isPercentage={field.isPercentage} />) }
