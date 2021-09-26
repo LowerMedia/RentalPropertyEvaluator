@@ -5,7 +5,7 @@ import ResultsField		from './components/ResultsField';
 import LocalStorage		from './components/LocalStorage';
 import RPECalc			from './RPECalc';
 
-class RentalPropertyEvaluator extends React.Component {
+export default class RentalPropertyEvaluator extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = localStorage.getItem('rpeCalculationsSet')
@@ -154,5 +154,3 @@ class RentalPropertyEvaluator extends React.Component {
 		);
 	}
 }
-
-export default RentalPropertyEvaluator;
