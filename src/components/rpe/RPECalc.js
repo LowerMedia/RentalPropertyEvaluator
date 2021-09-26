@@ -6,6 +6,7 @@ const RPECalc = {
 	// TODO: add deprec and amort costs
 	// TODO: fix ability to make incl in mortgage toggler false by default
 	// TODO: convert form to Formik (https://formik.org/docs/examples/checkboxes)
+	// FIX: reset only works once
 
 	PITI: (state) => { // WIP
 		return state.calculated.YearlyMortgagePayment + state.changeable.Taxes + state.calculated.TotalInterestPaidYearly;// todo: add deprec and amort costs
