@@ -64,7 +64,7 @@ export default class RentalPropertyEvaluator extends React.Component {
 		if ( this.urlPayloadExists() ) {
 			this.setStateViaUrlPayload();
 		}
-		this.calcAllDynamically(3);
+		this.calcAllDynamically();
 		document.querySelectorAll('.rpe-reset-link').forEach( el => {
 			el.addEventListener('click', (e) => {
 				e.preventDefault();
@@ -89,7 +89,7 @@ export default class RentalPropertyEvaluator extends React.Component {
 		await localStorage.setItem('calculatedRPE', JSON.stringify( { ...FieldDataObject.calculated } ));
 		await this.setState({changeable: JSON.parse( localStorage.getItem('changeableRPE') ), calculated: JSON.parse( localStorage.getItem('calculatedRPE') ) });
 		
-		await this.calcAllDynamically(2);
+		await this.calcAllDynamically();
 		for (var key of Object.keys(this.state.changeable)) {
 			try {
 				document.getElementById(key).value = this.state.changeable[key]; // TODO: fix via passing updated state to input field
