@@ -34,10 +34,12 @@ code {
 
 .navbar-brand { @include mobile { background-color: lightgrey; } }
 
+.navbar-menu  { @include mobile { background-color: whitesmoke; } }
+
 .hidden { display: none; }
 
 .App {
-  min-height: 100vh;
+  min-height: 80vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -47,15 +49,6 @@ code {
 }
 
 .FieldsSection span { color: black; }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 
 h5 { margin-bottom: 0.5rem; }
 
@@ -140,7 +133,7 @@ label {
   }
 }
 
-.number-symbol.dollar { left: -12.5px; }
+.number-symbol.currency { left: -12.5px; }
 
 .number-symbol.percentage { right: -15px; }
 
@@ -161,6 +154,8 @@ label {
 [data-ispassing="false"] span { color: red; }
 
 [data-ispassing="true"] span { color: darkgreen; }
+
+.is-fit-content { height: fit-content; }
 
 span.calculatedValue {
   font-size: 0.75rem;
@@ -198,6 +193,7 @@ span.calculatedValue {
   }
 
   .collapsable.collapsed form .formItem {
+    margin-bottom: 0 !important;
     height: 0;
   }
 }

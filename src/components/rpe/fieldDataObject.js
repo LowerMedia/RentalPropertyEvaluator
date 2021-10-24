@@ -53,20 +53,20 @@ const FieldDataObject = {
 
 	ResultsBoxFields: [
 		{id:"CoCROI",labelText:"CoCROI (Year 1)",isPercentage:"true",threshold:10,toolTip:"( ( ( Gross Rent ) + ( Other Income) ) - ( Vacancy + Operating Expenses + Annual Mortgage Payments ) )"},
-		{id:"Cap",labelText:"Cap",isPercentage:"true",threshold:7.5,toolTip:"E = mc^2"},
+		{id:"Cap",labelText:"Cap",isPercentage:"true",threshold:7.5,toolTip:"( ( NetOperatingIncome * 12 ) / PurchasePrice ) * 100"},
 		{id:"DebtServiceCoverageRatio",labelText:"DSCR",threshold:1.25,toolTip:"debt to income ratio - cash flow available for debt service / total debt service"},
-		{id:"GrossRentMultiplier",labelText:"GRM",threshold: 1,toolTip:"Purchase Price / Monthly Rent "},
+		{id:"GrossRentMultiplier",labelText:"GRM",threshold: 1,toolTip:"Purchase Price / Monthly Rent (PurchasePrice / TotalMonthlyIncome) "},
 		{id:"OnePercentRule",labelText:"1% Rule", isPercentage:"true",threshold: .99,toolTip:"Monthly Income / Purchase Price"},
-		{id:"EBDITA",labelText:"EBDITA",toolTip:"E = mc^2"},
-		{id:"TotalCashInvested",labelText:"Cash Inv.",toolTip:"E = mc^2"},
-		{id:"TotalLoanAmount",labelText:"Loan Amt",toolTip:"E = mc^2"},
+		{id:"EBDITA",labelText:"EBDITA",toolTip:"totalIncomeYearly + totalTaxesPaidYearly + totalMortgageInterestPaidYearly + totalDeprectiationCostsYearly + totalAmoritizationCostsYearly"},
+		{id:"TotalCashInvested",labelText:"Cash Inv.",toolTip:"ClosingCosts + ((PurchasePrice ) * ( 0.01 * PercentDown ) )"},
+		{id:"TotalLoanAmount",labelText:"Loan Amt",toolTip:"( PurchasePrice + closingCosts ) - ((PurchasePrice + closingCosts) * ( 0.01 * PercentDown ) )"},
 	],
 
 	ResultsBoxFieldsMonthlyYearly: [
-		{id:"NetOperatingIncome",labelText:"NOI", monthYear:true,toolTip:"E = mc^2"},
-		{id:"CashFlow",labelText:"CashFlow", monthYear:true,toolTip:"E = mc^2"},
-		{id:"TotalMonthlyIncome",labelText:"Income", monthYear:true,toolTip:"E = mc^2"},
-		{id:"MortgagePayment",labelText:"Mortgage", monthYear:true,toolTip:"E = mc^2"},
+		{id:"NetOperatingIncome",labelText:"NOI", monthYear:true,toolTip:"Total Monthly Income - Total Monthly Expenses"},
+		{id:"CashFlow",labelText:"CashFlow", monthYear:true,toolTip:"Total Monthly Income - Total Monthly Expenses - Mortgage Payment"},
+		{id:"TotalMonthlyIncome",labelText:"Income", monthYear:true,toolTip:"Monthly Rent"},
+		{id:"MortgagePayment",labelText:"Mortgage", monthYear:true,toolTip:"( TotalLoanAmount * ( ( InterestRate * 0.01 ) / 12 ) * Math.pow( ( 1 + ( ( InterestRate * 0.01 ) / 12 ) ), ( LoanTermMonths ) ) ) / ( Math.pow( ( 1 + ( ( InterestRate * 0.01 ) / 12 )), ( LoanTerm * 12 )) - 1 )"},
 		{id:"TotalInterestPaid",labelText:"Ttl Intrst Paid", monthYear:true,toolTip:"Principal * Rate * Time"},
 	],
 
