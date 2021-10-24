@@ -5,17 +5,7 @@ const Footer = () => {
 		<footer className=" width-full pb-0 mt-6">
 			<section className="container">
 				<h5 className="is-marginless has-text-right width-full mb-0">
-					<span className="is-size-7">This site was created with <i>React.js</i> & <i>Bulma</i> - Check it out on <a href='https://github.com/LowerMedia/rental-property-evaluator/'>Github</a></span>
-					
-					{/*<a
-					className="App-link is-size-6"
-					href="https://9ete.dev"
-					target="_blank"
-					rel="noopener noreferrer"
-					>
-						@9ete
-					</a>*/}
-					&nbsp;
+					<span className="is-size-7"><a href="http://rentalpropertyevaluator.com">RentalPropertyEvaluator.com</a> <span className='is-hidden-mobile'>-</span><span className='is-hidden-desktop'><br/></span> <i>The easiest way to calculate profitability of a potential rental property</i>.</span>
 				</h5>
 			</section>
 		</footer>

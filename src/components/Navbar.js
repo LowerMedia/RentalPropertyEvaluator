@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import html2canvas from 'html2canvas-cors'
 class Navbar extends React.Component {
 	componentDidMount() {
 		document.addEventListener('DOMContentLoaded', () => { // Per the bulma docs
@@ -20,6 +21,41 @@ class Navbar extends React.Component {
 		      });
 		    });
 		  }
+		});
+	}
+	generateShareLink() {
+		return document.URL + this.extractShareLinkPayload();
+	}
+	extractShareLinkPayload() {
+		console.log('extractShareLinkPayload function has run');
+		let payloadString = "?";
+		document.querySelectorAll("#rental-property-evaluator input:not(.disabled)").forEach((i, e) => { // add values to payload string
+			if (i.value === "false") { // if false and not an int, set to 0
+				i.value = 0;
+			}
+			if (i.value === "true") { // if true and not an int, set to 0
+				i.value = 1;
+			}
+			payloadString += i.id + "=" + i.value;
+			payloadString += ( e + 1 !== document.querySelectorAll("#rental-property-evaluator input:not(.disabled)").length ) ? "&" : ""; // don't add '&' after the last value
+		});
+		console.log(payloadString);
+		return payloadString;
+	}
+	copyShareLinkToClipboard(e) {
+		e.preventDefault();
+		navigator.clipboard.writeText( this.generateShareLink() );
+	}
+	async downloadScreenshot(e) {
+		e.preventDefault();
+		await html2canvas( document.getElementById('rental-property-evaluator'),{allowTaint:true,useCORS:true,logging:true}).then( canvas => {
+		    const image = new Image();
+			const curDate = new Date();
+			const downloadLink = document.createElement('a');
+		    image.src = canvas.toDataURL("image/png");
+			downloadLink.href = image.src;
+			downloadLink.setAttribute('download','rental-property-evaluator-export_' + ( curDate.getMonth() + 1 ) + "-" + curDate.getDate() + "-" + curDate.getFullYear() );
+			downloadLink.click();
 		});
 	}
 	render() {
@@ -54,8 +90,11 @@ class Navbar extends React.Component {
 			    <div className='navbar-end'>
 			      <div className='navbar-item'>
 			        <div className='buttons'>
-			          <a href='/' className='button'>
+			          <a href='/' className='button' onClick={(e) => this.downloadScreenshot(e)}>
 			            <strong>Export</strong>
+			          </a>
+			          <a href='/' className='button' onClick={(e) => this.copyShareLinkToClipboard(e)}>
+			            <strong>Share</strong>
 			          </a>
 			          <a href='/' className='button is-primary rpe-reset-link'>
 			            Reset
